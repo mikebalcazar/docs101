@@ -1,0 +1,148 @@
+<title>La cara de cliente de quell101</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · quell101</p>
+  <h1>La cara de cliente de quell101</h1>
+  <p class="lede">El taller invita a su cliente a ver el plano de su obra y le manda los puntos que necesita que defina: color, medida, dónde va el contacto. El cliente contesta sobre el plano, con foto si hace falta, y puede preguntar. Lo interno del taller nunca le llega, y eso lo garantiza el servidor, no la pantalla.</p>
+  <div class="meta"><span><b>Al 18 de septiembre de 2026</b></span><span>Contrato de la API <b>0.15.0</b></span><span>Pantalla: quell101 → Inicio → Invitar cliente</span></div>
+</header>
+
+<h2>Una sola cuenta para el cliente</h2>
+<p>El cliente de un taller ya tenía cuenta en la suite: con ella abre peek101 y ve su estado de cuenta. La cara de cliente de quell101 usa <b>esa misma cuenta</b>. No hay dos contraseñas ni dos altas: quell101 le pide a la API que deje entrar al cliente, y la API lo apunta como cliente de la empresa (el mismo renglón que ve dash101) si no estaba ya.</p>
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1180 250" role="img" aria-label="Invitación: el dueño del taller llena correo, nombre y obras en quell101; quell101 le pide a la API que deje entrar al cliente; la API lo deja como cliente de la empresa y persona de la suite, sin PIN; quell101 lo apunta en sus obras y le manda el correo; el cliente entra con su correo, pide un código y pone su contraseña.">
+  <defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="40" width="190" height="90" rx="8"/>
+    <rect x="260" y="40" width="200" height="90" rx="8" stroke="#0080C1" stroke-width="2"/>
+    <rect x="510" y="20" width="200" height="130" rx="8"/>
+    <rect x="760" y="40" width="180" height="90" rx="8"/>
+    <rect x="990" y="40" width="170" height="90" rx="8"/>
+  </g>
+  <text x="115" y="66" text-anchor="middle" font-weight="600">El dueño, en quell101</text>
+  <text x="115" y="88" text-anchor="middle" opacity=".7">Inicio → Invitar cliente</text>
+  <text x="115" y="106" text-anchor="middle" opacity=".7">correo · nombre · obras</text>
+  <text x="360" y="66" text-anchor="middle" font-weight="600" fill="#0080C1">suite101-api</text>
+  <text x="360" y="88" text-anchor="middle" opacity=".8">POST /orgs/:o/clientes/invitar</text>
+  <text x="360" y="106" text-anchor="middle" opacity=".7">con la sesión de quien invita</text>
+  <text x="610" y="44" text-anchor="middle" font-weight="600">Lo que queda hecho</text>
+  <text x="610" y="66" text-anchor="middle" opacity=".7">cliente de la empresa (si no estaba)</text>
+  <text x="610" y="84" text-anchor="middle" opacity=".7">persona en la suite (si no existía)</text>
+  <text x="610" y="102" text-anchor="middle" opacity=".7">acceso tipo cliente, sin PIN</text>
+  <text x="610" y="120" text-anchor="middle" opacity=".7">en quell101: rol «cli» en esas obras</text>
+  <text x="610" y="138" text-anchor="middle" opacity=".7">y el correo de invitación</text>
+  <text x="850" y="66" text-anchor="middle" font-weight="600">El cliente entra</text>
+  <text x="850" y="88" text-anchor="middle" opacity=".7">su correo → «Mándame un código»</text>
+  <text x="850" y="106" text-anchor="middle" opacity=".7">y pone su contraseña</text>
+  <text x="1075" y="66" text-anchor="middle" font-weight="600">La misma cuenta</text>
+  <text x="1075" y="88" text-anchor="middle" opacity=".7">abre peek101 (estado de cuenta)</text>
+  <text x="1075" y="106" text-anchor="middle" opacity=".7">y quell101 (puntos por definir)</text>
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fa)">
+    <line x1="210" y1="85" x2="258" y2="85"/>
+    <line x1="460" y1="85" x2="508" y2="85"/>
+    <line x1="710" y1="85" x2="758" y2="85"/>
+    <line x1="940" y1="85" x2="988" y2="85"/>
+  </g>
+  <text x="590" y="200" text-anchor="middle" opacity=".7">Si el correo es de alguien de la empresa, o de un cliente de otra empresa, la API dice que no y quell101 no escribe nada: se le explica al dueño con palabras.</text>
+  <text x="590" y="222" text-anchor="middle" opacity=".7">Nadie guarda ni manda contraseñas: el cliente la pone él, la primera vez, con un código que le llega al momento.</text>
+  </g>
+</svg>
+</div>
+<figcaption>Invitar es un formulario en el inicio de quell101. Lo demás lo hacen la API y quell101 entre sí, y al cliente le llega un correo con los tres pasos para entrar.</figcaption>
+</figure>
+
+<h2>Qué ve el cliente, y qué no</h2>
+<p>La regla que manda: <b>el recorte vive en el servidor</b>. Cuando el cliente pide su obra, el Worker de quell101 le manda sólo lo suyo; la pantalla no tiene nada que esconder porque nada más le llegó.</p>
+<div class="tabla">
+<table>
+<thead><tr><th>Cosa</th><th>El cliente</th><th>El taller</th></tr></thead>
+<tbody>
+<tr><td>Sus obras</td><td>Sólo las obras a las que lo invitaron, con cuántos puntos tiene por definir en cada una.</td><td>Elige a qué obras entra al invitarlo, y puede sumarle obras después.</td></tr>
+<tr><td>El plano</td><td>Todos los ítems, pero de cada uno sólo código, nombre, tipo y posición. <b>Resaltados</b> los que tienen puntos por definir.</td><td>Todo, como siempre.</td></tr>
+<tr><td>Un ítem</td><td>Sus puntos por definir, y un cuadro para preguntar sobre ese ítem. <b>Ni fase, ni pendientes, ni bitácora, ni responsable, ni fotos internas.</b></td><td>Lo de siempre.</td></tr>
+<tr><td>Las dudas</td><td>Sólo las marcadas «para el cliente» de sus obras: las que el taller le pidió definir y las que él abrió. <b>Ni una interna</b>, aunque adivine el id.</td><td>Todas, con una etiqueta que dice cuáles son del cliente.</td></tr>
+<tr><td>Cerrar un punto</td><td>Su respuesta lo cierra sola cuando lo abrió el taller.</td><td>Su respuesta cierra los que abrió el cliente. Y puede reabrir cualquiera.</td></tr>
+<tr><td>Avisar</td><td>Recibe <b>un</b> correo cuando el taller aprieta «Avisar al cliente por correo». Nada automático por punto.</td><td>Un botón, cuando quiera. Cuando el cliente contesta, al taller no le llega correo: lo ve en su fila de dudas.</td></tr>
+<tr><td>Sin señal</td><td>Sus respuestas y preguntas se guardan en el aparato y suben solas cuando vuelve la señal, como todo en quell101.</td><td>Igual.</td></tr>
+</tbody>
+</table>
+</div>
+
+<h2>Cómo está hecho, en corto</h2>
+<ul class="lista">
+  <li><b>El rol «cli»</b> no cabía en la base: la columna de roles tenía una lista cerrada, y ampliarla en SQLite obliga a rehacer la tabla de usuarios, a la que le apunta media base. Soltarla con las llaves foráneas prendidas habría disparado borrados en cascada. Se resolvió sin rehacer nada: la columna vieja se renombra y se agrega una nueva con la lista ampliada, copiando los valores. Probado sobre SQLite real antes de aplicarlo en la base de producción.</li>
+  <li><b>Una lista blanca</b> dice qué puede abrir un cliente, y se revisa antes de cualquier ruta: todo lo que no esté ahí contesta 403, aunque una ruta nueva se olvide de preguntar.</li>
+  <li><b>La API creció</b> al contrato 0.15.0 con una sola ruta nueva, la de invitar. La usa quell101 hoy y la puede usar cualquier app que tenga base propia.</li>
+</ul>
+
+<h2>Lo que todavía no está</h2>
+<div class="aviso"><p><b>La liga desde peek101.</b> Mike quiere que desde el estado de cuenta se brinque a «lo que te falta definir» por cada proyecto. Hoy la liga es general (la portada de quell101, donde el cliente ve sus obras), porque quell101 guarda sus obras en su propia base y peek101 no sabe cuál corresponde a cada proyecto. La liga por proyecto llega con la mudanza de quell101 a la base por empresa. <b>El brinco pide entrar una vez</b> por aparato: son dos direcciones distintas y cada una guarda su propia sesión.</p></div>
+
+<h2>Cómo se probó</h2>
+<ul class="lista">
+  <li>API: 128 pruebas en workerd, 3 nuevas (la invitación deja cliente, persona y acceso, y repetirla no duplica; el invitado entra con código y abre /peek; 409 para miembros y para clientes de otra empresa). Humo en staging con la misma vuelta.</li>
+  <li>quell101: 95 comprobaciones con el Worker completo sobre SQLite real, 48 nuevas: la migración conserva roles, membresías y dudas; la invitación y sus rechazos; lo que el cliente ve y siete rutas que le contestan 403; ni una duda interna le llega; el cierre automático en los dos sentidos; reabrir; avisar.</li>
+</ul>
+
+<footer>Escrito por la sesión Jr. PROGRAMADOR a partir del código publicado el 18 de septiembre de 2026 (suite101-api #75, quell101 #70).</footer>
+</div>
