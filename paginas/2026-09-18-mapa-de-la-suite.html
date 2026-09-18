@@ -1,0 +1,461 @@
+<title>Mapa de la suite 101</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+h3{font-family:var(--display);font-weight:600;font-size:18px;margin:26px 0 8px}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code,.mono{font-family:var(--mono);font-size:.92em}
+code{background:var(--sup-2);padding:1px 5px;border-radius:4px}
+.capas{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin:22px 0 6px}
+.capa{background:var(--sup);border:1px solid var(--linea);border-radius:10px;padding:14px 16px;border-top:4px solid var(--marca)}
+.capa .nombre{font-family:var(--display);font-weight:700;font-size:17px;margin:0 0 4px}
+.capa .quien{color:var(--tinta-2);font-size:14px;margin:0 0 8px}
+.capa .hoy{font-size:13px;color:var(--tinta-3);margin:0}
+.capa .hoy b{color:var(--tinta-2);font-weight:500}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+.leyenda{display:flex;flex-wrap:wrap;gap:8px 18px;font-size:13px;color:var(--tinta-3);margin-top:8px}
+.leyenda span::before{content:"";display:inline-block;width:22px;height:0;border-top:2px solid currentColor;margin-right:6px;vertical-align:middle}
+.leyenda .punteada::before{border-top-style:dashed}
+.leyenda .azul{color:var(--marca)}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+td .nota{display:block;color:var(--tinta-3);font-size:13px}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.azul{background:var(--marca-suave);color:var(--marca)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+ul.lista li b{font-weight:600}
+.dos{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin:16px 0}
+.bloque{background:var(--sup);border:1px solid var(--linea);border-radius:10px;padding:14px 16px}
+.bloque h3{margin-top:0}
+.bloque p,.bloque ul{font-size:14.5px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){
+  h2{font-size:22px}
+  figure{padding:10px 10px 8px}
+}
+</style>
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>Mapa de la suite 101</h1>
+  <p class="lede">Dónde están las pantallas, dónde el servidor, dónde las bases de datos y por dónde viaja la información. Tal como está desplegado hoy, más lo que falta para que dar de alta una empresa sea automático y para venderla en un dominio propio.</p>
+  <div class="meta"><span><b>Al 18 de septiembre de 2026</b></span><span>Contrato de la API <b>0.13.0</b></span><span>14 repositorios en GitHub</span><span>Todo en Cloudflare, salvo tres sitios heredados en Netlify</span></div>
+</header>
+
+<h2>Las cuatro capas, y qué es cada una hoy</h2>
+<p>La suite se explica en cuatro niveles de personas. Cada nivel tiene ya una pieza construida; el nombre comercial y el nombre del repositorio no siempre coinciden, y aquí van los dos.</p>
+<div class="capas">
+  <div class="capa"><p class="nombre">MASTER101</p><p class="quien">Nosotros, los dueños de la suite.</p><p class="hoy">Hoy: <b>master101</b>. Abre y suspende empresas, prende y apaga apps, nombra superadmins, administra licencias.</p></div>
+  <div class="capa"><p class="nombre">DIRECTOR101</p><p class="quien">La persona que la empresa cliente designa para administrar a su gente.</p><p class="hoy">Hoy: <b>workshop101</b> (rol <code>owner</code> o <code>admin</code>). Da de alta a su personal, roles y a qué apps entra cada quien.</p></div>
+  <div class="capa"><p class="nombre">suite101</p><p class="quien">Los usuarios de la empresa, con correo y contraseña o cuenta de Google.</p><p class="hoy">Hoy: <b>dash101, quote101, quell101, roster101, SUPERVISOR</b>. Una sola sesión sirve para todas.</p></div>
+  <div class="capa"><p class="nombre">apps 101</p><p class="quien">Usuarios finales: clientes del taller, público, o quien compra una licencia.</p><p class="hoy">Hoy: <b>peek101</b> (portal del cliente, sólo lectura) y <b>draw101, nest101, shape101</b> en Windows con licencia por suscripción.</p></div>
+</div>
+
+<h2>1 · El mapa general</h2>
+<p>Todas las pantallas web son Workers de Cloudflare y ninguna toca una base de datos directamente: hablan con un solo servidor, <code>suite101-api</code>, que es quien decide quién es cada quien y de qué empresa. Cada empresa tiene su propia base de datos, separada de las demás.</p>
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1180 700" role="img" aria-label="Mapa general: las personas entran a pantallas web o de escritorio; todas hablan con suite101-api, que guarda en una base maestra, una base por empresa y un almacén de archivos, y usa Resend y Google para la entrada.">
+  <defs>
+    <marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker>
+    <marker id="flz" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0080C1"/></marker>
+  </defs>
+  <g font-size="12" fill="currentColor">
+  <!-- encabezados de columna -->
+  <text x="20" y="28" font-size="11" letter-spacing="1.2" font-weight="600" opacity=".6">PERSONAS</text>
+  <text x="250" y="28" font-size="11" letter-spacing="1.2" font-weight="600" opacity=".6">PANTALLAS (Workers · una por app)</text>
+  <text x="600" y="28" font-size="11" letter-spacing="1.2" font-weight="600" opacity=".6">SERVIDOR</text>
+  <text x="880" y="28" font-size="11" letter-spacing="1.2" font-weight="600" opacity=".6">DATOS</text>
+
+  <!-- personas -->
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="50" width="190" height="56" rx="8"/>
+    <rect x="20" y="130" width="190" height="56" rx="8"/>
+    <rect x="20" y="210" width="190" height="120" rx="8"/>
+    <rect x="20" y="354" width="190" height="56" rx="8"/>
+    <rect x="20" y="450" width="190" height="72" rx="8"/>
+  </g>
+  <text x="115" y="72" text-anchor="middle" font-weight="600">MASTER101</text>
+  <text x="115" y="92" text-anchor="middle" opacity=".7">nosotros · superadmin</text>
+  <text x="115" y="152" text-anchor="middle" font-weight="600">DIRECTOR101</text>
+  <text x="115" y="172" text-anchor="middle" opacity=".7">dueño o admin de la empresa</text>
+  <text x="115" y="232" text-anchor="middle" font-weight="600">Usuarios de la empresa</text>
+  <text x="115" y="252" text-anchor="middle" opacity=".7">oficina, socios, personal</text>
+  <text x="115" y="278" text-anchor="middle" opacity=".7">correo + contraseña</text>
+  <text x="115" y="296" text-anchor="middle" opacity=".7">o cuenta de Google</text>
+  <text x="115" y="316" text-anchor="middle" opacity=".7">una sesión para todas las apps</text>
+  <text x="115" y="376" text-anchor="middle" font-weight="600">Cliente final</text>
+  <text x="115" y="396" text-anchor="middle" opacity=".7">ve su proyecto desde el celular</text>
+  <text x="115" y="474" text-anchor="middle" font-weight="600">Quien compra una licencia</text>
+  <text x="115" y="494" text-anchor="middle" opacity=".7">draw101 · nest101 · shape101</text>
+  <text x="115" y="512" text-anchor="middle" opacity=".7">instaladas en Windows</text>
+
+  <!-- pantallas -->
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="250" y="50" width="300" height="56" rx="8"/>
+    <rect x="250" y="130" width="300" height="56" rx="8"/>
+    <rect x="250" y="210" width="300" height="120" rx="8"/>
+    <rect x="250" y="354" width="300" height="56" rx="8"/>
+    <rect x="250" y="450" width="300" height="72" rx="8" stroke-dasharray="5 4"/>
+  </g>
+  <text x="400" y="72" text-anchor="middle" font-weight="600">master101</text>
+  <text x="400" y="92" text-anchor="middle" opacity=".7">empresas · apps · gente · superadmins · licencias</text>
+  <text x="400" y="152" text-anchor="middle" font-weight="600">workshop101</text>
+  <text x="400" y="172" text-anchor="middle" opacity=".7">su gente, roles y accesos</text>
+  <text x="400" y="234" text-anchor="middle" font-weight="600">dash101 · quote101 · quell101</text>
+  <text x="400" y="254" text-anchor="middle" font-weight="600">roster101 · SUPERVISOR</text>
+  <text x="400" y="278" text-anchor="middle" opacity=".7">negocio, cotizaciones, bitácora de obra,</text>
+  <text x="400" y="296" text-anchor="middle" opacity=".7">trabajadores, taller</text>
+  <text x="400" y="316" text-anchor="middle" opacity=".7">staging y producción de cada una</text>
+  <text x="400" y="376" text-anchor="middle" font-weight="600">peek101</text>
+  <text x="400" y="396" text-anchor="middle" opacity=".7">portal del cliente · sólo lectura</text>
+  <text x="400" y="474" text-anchor="middle" font-weight="600">draw101 · nest101 · shape101</text>
+  <text x="400" y="494" text-anchor="middle" opacity=".7">programas de escritorio (no son Workers)</text>
+  <text x="400" y="512" text-anchor="middle" opacity=".7">instaladores en «descargas»</text>
+
+  <!-- flechas personas -> pantallas -->
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fl)">
+    <line x1="210" y1="78" x2="248" y2="78"/>
+    <line x1="210" y1="158" x2="248" y2="158"/>
+    <line x1="210" y1="270" x2="248" y2="270"/>
+    <line x1="210" y1="382" x2="248" y2="382"/>
+    <line x1="210" y1="486" x2="248" y2="486"/>
+  </g>
+
+  <!-- servidor -->
+  <rect x="600" y="50" width="240" height="472" rx="10" fill="none" stroke="#0080C1" stroke-width="2"/>
+  <text x="720" y="80" text-anchor="middle" font-weight="700" font-size="15">suite101-api</text>
+  <text x="720" y="100" text-anchor="middle" opacity=".7">Worker · Hono · contrato 0.13.0</text>
+  <line x1="616" y1="114" x2="824" y2="114" stroke="#0080C1" stroke-width="1" opacity=".5"/>
+  <text x="620" y="140" font-family="IBM Plex Mono, monospace" font-size="12">/auth</text><text x="690" y="140" opacity=".7">código por correo, contraseña, Google</text>
+  <text x="620" y="164" font-family="IBM Plex Mono, monospace" font-size="12">/yo</text><text x="690" y="164" opacity=".7">quién soy y de qué empresa</text>
+  <text x="620" y="188" font-family="IBM Plex Mono, monospace" font-size="12">/orgs</text><text x="690" y="188" opacity=".7">los datos de la empresa</text>
+  <text x="620" y="212" font-family="IBM Plex Mono, monospace" font-size="12">/admin</text><text x="690" y="212" opacity=".7">sólo superadmin</text>
+  <text x="620" y="236" font-family="IBM Plex Mono, monospace" font-size="12">/licencias</text><text x="700" y="236" opacity=".7">activar, latido, panel</text>
+  <line x1="616" y1="256" x2="824" y2="256" stroke="#0080C1" stroke-width="1" opacity=".5"/>
+  <text x="720" y="282" text-anchor="middle" font-weight="600">Lo que decide aquí</text>
+  <text x="720" y="304" text-anchor="middle" opacity=".7">¿la sesión es válida?</text>
+  <text x="720" y="322" text-anchor="middle" opacity=".7">¿de qué empresa es?</text>
+  <text x="720" y="340" text-anchor="middle" opacity=".7">¿esa app está prendida?</text>
+  <text x="720" y="358" text-anchor="middle" opacity=".7">¿qué rol tiene?</text>
+  <text x="720" y="376" text-anchor="middle" opacity=".7">¿la empresa está activa?</text>
+  <line x1="616" y1="396" x2="824" y2="396" stroke="#0080C1" stroke-width="1" opacity=".5"/>
+  <text x="720" y="420" text-anchor="middle" font-weight="600">Servicios externos</text>
+  <text x="720" y="442" text-anchor="middle" opacity=".7">Resend · manda el código de entrada</text>
+  <text x="720" y="460" text-anchor="middle" opacity=".7">Google · entrar con su cuenta</text>
+  <text x="720" y="478" text-anchor="middle" opacity=".7">Stripe · pagos de licencias (por conectar)</text>
+  <text x="720" y="504" text-anchor="middle" opacity=".55" font-size="11">producción y staging separados</text>
+
+  <!-- flechas pantallas -> API -->
+  <g stroke="#0080C1" stroke-width="1.6" marker-end="url(#flz)">
+    <line x1="550" y1="78" x2="598" y2="130"/>
+    <line x1="550" y1="158" x2="598" y2="170"/>
+    <line x1="550" y1="270" x2="598" y2="250"/>
+    <line x1="550" y1="382" x2="598" y2="330"/>
+  </g>
+  <line x1="550" y1="486" x2="598" y2="440" stroke="#0080C1" stroke-width="1.6" stroke-dasharray="5 4" marker-end="url(#flz)"/>
+  <text x="575" y="46" text-anchor="middle" font-size="11" fill="#0080C1">service binding</text>
+  <text x="575" y="58" text-anchor="middle" font-size="11" fill="#0080C1" opacity=".9">cookie s101 + X-App</text>
+  <text x="585" y="548" text-anchor="middle" font-size="11" fill="#0080C1">https · sin sesión · token firmado</text>
+
+  <!-- datos -->
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <path d="M880 60 a70 12 0 0 1 140 0 v70 a70 12 0 0 1 -140 0 z"/><path d="M880 60 a70 12 0 0 0 140 0" />
+    <path d="M880 190 a70 12 0 0 1 140 0 v110 a70 12 0 0 1 -140 0 z" stroke="#0080C1" stroke-width="2"/><path d="M880 190 a70 12 0 0 0 140 0" stroke="#0080C1" stroke-width="2"/>
+    <rect x="880" y="350" width="140" height="60" rx="8"/>
+  </g>
+  <text x="950" y="90" text-anchor="middle" font-weight="600">D1 · suite101-master</text>
+  <text x="950" y="108" text-anchor="middle" opacity=".7" font-size="11">empresas, usuarios, miembros,</text>
+  <text x="950" y="122" text-anchor="middle" opacity=".7" font-size="11">sesiones, superadmins, licencias</text>
+  <text x="950" y="222" text-anchor="middle" font-weight="600" fill="#0080C1">Una base por empresa</text>
+  <text x="950" y="240" text-anchor="middle" opacity=".7" font-size="11">Durable Object con SQLite</text>
+  <text x="950" y="256" text-anchor="middle" opacity=".7" font-size="11">clientes, cotizaciones, proyectos,</text>
+  <text x="950" y="270" text-anchor="middle" opacity=".7" font-size="11">ítems, movimientos, conciliaciones</text>
+  <text x="950" y="288" text-anchor="middle" opacity=".7" font-size="11">nace sola al abrir la empresa</text>
+  <text x="950" y="374" text-anchor="middle" font-weight="600">R2 · suite101</text>
+  <text x="950" y="392" text-anchor="middle" opacity=".7" font-size="11">archivos y fotos</text>
+
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fl)">
+    <line x1="842" y1="100" x2="878" y2="100"/>
+    <line x1="842" y1="380" x2="878" y2="380"/>
+  </g>
+  <line x1="842" y1="250" x2="878" y2="250" stroke="#0080C1" stroke-width="1.6" marker-end="url(#flz)"/>
+  <text x="860" y="92" text-anchor="middle" font-size="10" opacity=".7">SQL</text>
+  <text x="860" y="242" text-anchor="middle" font-size="10" fill="#0080C1">por org</text>
+  <text x="860" y="372" text-anchor="middle" font-size="10" opacity=".7">lee/escribe</text>
+
+  <!-- bases propias de tres apps -->
+  <g stroke="currentColor" fill="none" stroke-width="1.2" stroke-dasharray="5 4">
+    <rect x="1050" y="210" width="110" height="130" rx="8"/>
+  </g>
+  <text x="1105" y="232" text-anchor="middle" font-weight="600" font-size="11">Bases propias</text>
+  <text x="1105" y="250" text-anchor="middle" opacity=".7" font-size="11">quell101 (D1+R2)</text>
+  <text x="1105" y="266" text-anchor="middle" opacity=".7" font-size="11">roster101 (D1+R2)</text>
+  <text x="1105" y="282" text-anchor="middle" opacity=".7" font-size="11">SUPERVISOR (D1)</text>
+  <text x="1105" y="306" text-anchor="middle" opacity=".7" font-size="11">hoy de una sola</text>
+  <text x="1105" y="320" text-anchor="middle" opacity=".7" font-size="11">empresa; por mudar</text>
+  <path d="M550 300 C 700 600, 1105 600, 1105 342" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#fl)"/>
+  <text x="860" y="596" text-anchor="middle" font-size="11" opacity=".7">esas tres apps guardan sus propios datos directamente (sin pasar por la API)</text>
+
+  <!-- publicación -->
+  <rect x="20" y="620" width="1140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/>
+  <text x="40" y="644" font-weight="600" font-size="12">Cómo llega a producción</text>
+  <text x="40" y="664" font-size="12" opacity=".8">GitHub → Actions publica primero staging, corre las pruebas contra staging (API en workerd, Playwright en navegador, humo), y sólo si todo pasa publica producción y la mide. Nada se sube a mano.</text>
+  </g>
+</svg>
+</div>
+<figcaption>Las pantallas web no ven las bases de datos: todo pasa por suite101-api, que separa a cada empresa en su propia base. Las líneas azules son el camino normal de una petición; las punteadas, lo que todavía no pasa por la API.</figcaption>
+<div class="leyenda"><span class="azul">petición con sesión o token</span><span>lectura y escritura de datos</span><span class="punteada">camino heredado o pendiente</span></div>
+</figure>
+
+<h3>Cómo entra una persona</h3>
+<ul class="lista">
+  <li><b>Correo y código.</b> Escribe su correo; la API le manda un código de seis dígitos por Resend; con el código entra. Si tiene contraseña, entra con ella. Si su empresa lo permite, con su cuenta de Google.</li>
+  <li><b>Una sesión, todas las apps.</b> La sesión vive en una cookie <code>s101</code> que sólo el servidor puede leer. Cada app le dice a la API quién es (cabecera <code>X-App</code>) y la API contesta si esa app está prendida para esa empresa y con qué rol entra la persona.</li>
+  <li><b>Nadie llega a la API desde afuera con sesión de otra app.</b> Las pantallas hablan con la API por <em>service binding</em> de Cloudflare: una conexión interna, no una URL pública.</li>
+</ul>
+
+<h2>2 · Dar de alta una empresa nueva</h2>
+<p>Hoy el alta la hace MASTER101 y tarda un minuto. La base de la empresa nace sola y vacía, con el esquema al día. Lo que sigue muestra lo que ya ocurre y, en punteado, lo que falta para que el alta sea completa sin intervención nuestra.</p>
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1180 420" role="img" aria-label="Flujo del alta: master101 crea la empresa en la base maestra, la base propia de la empresa nace con sus migraciones, se nombra al dueño, el dueño entra a workshop101 y da de alta a su gente, y su gente entra a las apps. En punteado lo que falta: dominio propio, correo de bienvenida, datos fiscales, plan y cobro.">
+  <defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <text x="20" y="26" font-size="11" letter-spacing="1.2" font-weight="600" opacity=".6">LO QUE YA PASA HOY</text>
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="44" width="170" height="92" rx="8"/>
+    <rect x="240" y="44" width="180" height="92" rx="8"/>
+    <rect x="470" y="44" width="180" height="92" rx="8" stroke="#0080C1" stroke-width="2"/>
+    <rect x="700" y="44" width="170" height="92" rx="8"/>
+    <rect x="920" y="44" width="240" height="92" rx="8"/>
+  </g>
+  <text x="105" y="70" text-anchor="middle" font-weight="600">1 · MASTER101</text>
+  <text x="105" y="90" text-anchor="middle" opacity=".7">nombre, identificador,</text>
+  <text x="105" y="106" text-anchor="middle" opacity=".7">correo del dueño,</text>
+  <text x="105" y="122" text-anchor="middle" opacity=".7">qué apps van prendidas</text>
+  <text x="330" y="70" text-anchor="middle" font-weight="600">2 · Base maestra</text>
+  <text x="330" y="90" text-anchor="middle" opacity=".7">fila en <tspan font-family="IBM Plex Mono, monospace">orgs</tspan></text>
+  <text x="330" y="106" text-anchor="middle" opacity=".7">apps y plan</text>
+  <text x="330" y="122" text-anchor="middle" opacity=".7">dueño como miembro <tspan font-family="IBM Plex Mono, monospace">owner</tspan></text>
+  <text x="560" y="70" text-anchor="middle" font-weight="600" fill="#0080C1">3 · Nace su base</text>
+  <text x="560" y="90" text-anchor="middle" opacity=".7">Durable Object propio</text>
+  <text x="560" y="106" text-anchor="middle" opacity=".7">migraciones 0001 a 0005</text>
+  <text x="560" y="122" text-anchor="middle" opacity=".7">vacía, con el esquema al día</text>
+  <text x="785" y="70" text-anchor="middle" font-weight="600">4 · El dueño entra</text>
+  <text x="785" y="90" text-anchor="middle" opacity=".7">con su correo y código</text>
+  <text x="785" y="106" text-anchor="middle" opacity=".7">a workshop101</text>
+  <text x="785" y="122" text-anchor="middle" opacity=".7">(DIRECTOR101)</text>
+  <text x="1040" y="70" text-anchor="middle" font-weight="600">5 · Da de alta a su gente</text>
+  <text x="1040" y="90" text-anchor="middle" opacity=".7">correo, rol, apps de cada quien</text>
+  <text x="1040" y="106" text-anchor="middle" opacity=".7">y cada quien entra a sus apps</text>
+  <text x="1040" y="122" text-anchor="middle" opacity=".7">con la misma sesión</text>
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fa)">
+    <line x1="190" y1="90" x2="238" y2="90"/>
+    <line x1="420" y1="90" x2="468" y2="90"/>
+    <line x1="650" y1="90" x2="698" y2="90"/>
+    <line x1="870" y1="90" x2="918" y2="90"/>
+  </g>
+  <text x="214" y="82" text-anchor="middle" font-size="10" opacity=".7">POST</text>
+  <text x="444" y="82" text-anchor="middle" font-size="10" opacity=".7">idFromName</text>
+  <text x="674" y="82" text-anchor="middle" font-size="10" opacity=".7">correo</text>
+  <text x="894" y="82" text-anchor="middle" font-size="10" opacity=".7">sesión</text>
+  <text x="590" y="170" text-anchor="middle" opacity=".7">Todo esto ya está probado en cada publicación: la prueba de master101 crea una empresa, la suspende, la reactiva y la borra.</text>
+
+  <text x="20" y="226" font-size="11" letter-spacing="1.2" font-weight="600" opacity=".6">LO QUE FALTA PARA QUE SEA AUTOMÁTICO Y VENDIBLE</text>
+  <g stroke="currentColor" fill="none" stroke-width="1.2" stroke-dasharray="5 4">
+    <rect x="20" y="244" width="260" height="120" rx="8"/>
+    <rect x="320" y="244" width="260" height="120" rx="8"/>
+    <rect x="620" y="244" width="260" height="120" rx="8"/>
+    <rect x="920" y="244" width="240" height="120" rx="8"/>
+  </g>
+  <text x="150" y="270" text-anchor="middle" font-weight="600">Dominio propio por empresa</text>
+  <text x="150" y="292" text-anchor="middle" opacity=".7">empresa.suite101.mx o su dominio</text>
+  <text x="150" y="308" text-anchor="middle" opacity=".7">las mismas pantallas, el mismo servidor;</text>
+  <text x="150" y="324" text-anchor="middle" opacity=".7">la empresa se reconoce por el dominio</text>
+  <text x="150" y="346" text-anchor="middle" opacity=".7">MASTER101 lo da de alta y lo quita</text>
+  <text x="450" y="270" text-anchor="middle" font-weight="600">Datos del director al alta</text>
+  <text x="450" y="292" text-anchor="middle" opacity=".7">nombre, teléfono, RFC y razón social</text>
+  <text x="450" y="308" text-anchor="middle" opacity=".7">correo de bienvenida con su liga</text>
+  <text x="450" y="324" text-anchor="middle" opacity=".7">(hoy sólo se guarda su correo)</text>
+  <text x="750" y="270" text-anchor="middle" font-weight="600">Plan y cobro de la empresa</text>
+  <text x="750" y="292" text-anchor="middle" opacity=".7">qué contrató, hasta cuándo pagó</text>
+  <text x="750" y="308" text-anchor="middle" opacity=".7">suspensión sola al vencer</text>
+  <text x="750" y="324" text-anchor="middle" opacity=".7">(las licencias de escritorio ya lo tienen;</text>
+  <text x="750" y="340" text-anchor="middle" opacity=".7">las empresas todavía no)</text>
+  <text x="1040" y="270" text-anchor="middle" font-weight="600">Tres apps a la base por empresa</text>
+  <text x="1040" y="292" text-anchor="middle" opacity=".7">quell101, roster101 y SUPERVISOR</text>
+  <text x="1040" y="308" text-anchor="middle" opacity=".7">guardan hoy en bases propias de</text>
+  <text x="1040" y="324" text-anchor="middle" opacity=".7">una sola empresa; para venderlas</text>
+  <text x="1040" y="340" text-anchor="middle" opacity=".7">deben guardar en la base de cada org</text>
+  <text x="590" y="400" text-anchor="middle" opacity=".7">Ninguna de las cuatro requiere rehacer lo que existe: son columnas, rutas y pantallas nuevas sobre la misma API.</text>
+  </g>
+</svg>
+</div>
+<figcaption>Arriba, el alta como funciona hoy en cinco pasos. Abajo, las cuatro piezas que faltan para que una empresa quede lista sola y con su dominio, sin que MASTER101 pierda el control.</figcaption>
+</figure>
+
+<h2>3 · Licencias de los programas de escritorio</h2>
+<p>draw101, nest101 y shape101 no son pantallas web: se instalan en Windows. Su permiso para funcionar es un token firmado por la API que la app puede verificar sin internet, y que se renueva con un latido diario.</p>
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1180 300" role="img" aria-label="Licencias: MASTER101 crea una clave en master101; el cliente la teclea al instalar; la app la activa contra la API y recibe un token firmado con Ed25519 que vale hasta 30 días; cada día pide un latido y recibe uno nuevo; si MASTER101 suspende o el pago vence, el siguiente latido lo niega.">
+  <defs><marker id="fc" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker><marker id="fcz" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#0080C1"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="40" width="220" height="110" rx="8"/>
+    <rect x="470" y="40" width="240" height="220" rx="8" stroke="#0080C1" stroke-width="2"/>
+    <rect x="940" y="40" width="220" height="110" rx="8"/>
+    <rect x="20" y="190" width="220" height="70" rx="8" stroke-dasharray="5 4"/>
+  </g>
+  <text x="130" y="66" text-anchor="middle" font-weight="600">MASTER101 · master101</text>
+  <text x="130" y="88" text-anchor="middle" opacity=".7">crea la licencia: cliente, programa,</text>
+  <text x="130" y="104" text-anchor="middle" opacity=".7">lugares (1), cortesía o pagada hasta…</text>
+  <text x="130" y="126" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="12">T101-XXXX-XXXX-XXXX</text>
+  <text x="130" y="214" text-anchor="middle" font-weight="600">Stripe (por conectar)</text>
+  <text x="130" y="236" text-anchor="middle" opacity=".7">avisa el pago → la API corre la fecha</text>
+  <text x="590" y="66" text-anchor="middle" font-weight="600" fill="#0080C1">suite101-api · /licencias</text>
+  <text x="590" y="92" text-anchor="middle" opacity=".8">guarda suscripciones y activaciones</text>
+  <text x="590" y="110" text-anchor="middle" opacity=".8">firma tokens con una llave Ed25519</text>
+  <text x="590" y="126" text-anchor="middle" opacity=".8">que nace en el servidor y nadie copia</text>
+  <text x="590" y="154" text-anchor="middle" opacity=".8">un token vale como mucho 30 días</text>
+  <text x="590" y="170" text-anchor="middle" opacity=".8">y nunca más allá del día pagado</text>
+  <text x="590" y="198" text-anchor="middle" opacity=".8">está atado a una máquina (huella)</text>
+  <text x="590" y="214" text-anchor="middle" opacity=".8">y a un programa: no sirve en otro</text>
+  <text x="590" y="242" text-anchor="middle" opacity=".8">la bitácora apunta cada acción</text>
+  <text x="1050" y="66" text-anchor="middle" font-weight="600">La app en Windows</text>
+  <text x="1050" y="88" text-anchor="middle" opacity=".7">teclea la clave una vez</text>
+  <text x="1050" y="104" text-anchor="middle" opacity=".7">verifica la firma sin internet</text>
+  <text x="1050" y="120" text-anchor="middle" opacity=".7">latido una vez al día</text>
+  <text x="1050" y="136" text-anchor="middle" opacity=".7">sin red, sigue hasta que venza el token</text>
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fc)">
+    <line x1="240" y1="80" x2="468" y2="80"/>
+    <line x1="240" y1="225" x2="468" y2="225"/>
+  </g>
+  <text x="354" y="72" text-anchor="middle" font-size="11" opacity=".8">crea · marca pago · suspende · libera máquina</text>
+  <text x="354" y="217" text-anchor="middle" font-size="11" opacity=".8">POST /licencias/:id/pago  origen: stripe</text>
+  <g stroke="#0080C1" stroke-width="1.6">
+    <line x1="938" y1="80" x2="712" y2="80" marker-end="url(#fcz)"/>
+    <line x1="712" y1="120" x2="938" y2="120" marker-end="url(#fcz)"/>
+    <line x1="938" y1="160" x2="712" y2="160" marker-end="url(#fcz)"/>
+    <line x1="712" y1="200" x2="938" y2="200" marker-end="url(#fcz)"/>
+  </g>
+  <text x="825" y="72" text-anchor="middle" font-size="11" fill="#0080C1">activar: clave + huella</text>
+  <text x="825" y="112" text-anchor="middle" font-size="11" fill="#0080C1">token v1 firmado · hasta</text>
+  <text x="825" y="152" text-anchor="middle" font-size="11" fill="#0080C1">latido: token + huella (diario)</text>
+  <text x="825" y="192" text-anchor="middle" font-size="11" fill="#0080C1">token nuevo, o «sin pago» / «suspendida»</text>
+  <text x="590" y="288" text-anchor="middle" opacity=".7">Revocar es dejar de renovar: el corte llega solo cuando vence el último token, sin tocar la máquina del cliente.</text>
+  </g>
+</svg>
+</div>
+<figcaption>La licencia es control comercial, no candado: quien paga sigue trabajando aunque se quede sin internet; quien deja de pagar se queda sin permiso cuando vence su último token.</figcaption>
+</figure>
+
+<h2>4 · Dónde vive cada cosa</h2>
+<p>Un repositorio por pieza. Cada Worker tiene su copia de staging; la API y las pantallas se publican por separado y se hablan por contrato con número de versión.</p>
+<div class="tabla">
+<table>
+<thead><tr><th>Pieza</th><th>Repositorio</th><th>Qué es</th><th>Dónde corre</th><th>Sus datos</th></tr></thead>
+<tbody>
+<tr><td><b>suite101-api</b></td><td class="mono">suite101-api</td><td>El servidor de toda la suite</td><td>Worker (Hono)</td><td>D1 maestra · un Durable Object por empresa · R2</td></tr>
+<tr><td><b>master101</b></td><td class="mono">master101</td><td>Panel de MASTER101</td><td>Worker</td><td>por la API</td></tr>
+<tr><td><b>workshop101</b></td><td class="mono">workshop101</td><td>Panel del director de la empresa</td><td>Worker</td><td>por la API</td></tr>
+<tr><td><b>dash101</b></td><td class="mono">dash101</td><td>El negocio: proyectos, cotizaciones, finanzas, conciliación semanal</td><td>Worker (Next.js)</td><td>por la API</td></tr>
+<tr><td><b>quote101</b></td><td class="mono">cotizador-t101</td><td>Cotizador</td><td>Worker</td><td>por la API</td></tr>
+<tr><td><b>peek101</b></td><td class="mono">peek101</td><td>Portal del cliente final, sólo lectura</td><td>Worker</td><td>por la API</td></tr>
+<tr><td><b>quell101</b></td><td class="mono">bitacora-obra</td><td>Bitácora de obra con fotos y punchlist</td><td>Worker</td><td>D1 y R2 propios <span class="pill pend">por mudar</span></td></tr>
+<tr><td><b>roster101</b></td><td class="mono">t101-portal-trabajadores</td><td>Expedientes de trabajadores</td><td>Worker (Hono)</td><td>D1 y R2 propios <span class="pill pend">por mudar</span></td></tr>
+<tr><td><b>SUPERVISOR</b></td><td class="mono">taller101</td><td>El mapa del taller: mueble por etapa</td><td>Worker</td><td>D1 propio <span class="pill pend">por mudar</span></td></tr>
+<tr><td><b>draw101 · nest101 · shape101</b></td><td class="mono">draw101 · nest101 · shape101</td><td>Programas de escritorio para Windows</td><td>En la máquina del cliente</td><td>archivos locales · licencia por la API</td></tr>
+<tr><td><b>descargas</b></td><td class="mono">descargas</td><td>Los instaladores y su sitio</td><td>GitHub Releases + sitio</td><td>—</td></tr>
+<tr><td><b>wall101</b></td><td class="mono">wall101</td><td>El muro de entregas para Mike</td><td>Cloudflare Pages</td><td>—</td></tr>
+<tr><td><span class="pill azul">heredado</span> conta-master, cuenta-taller101, cotizador en Netlify</td><td class="mono">conta-master · …</td><td>Versiones anteriores, todavía en línea</td><td>Netlify + Firebase</td><td>Firestore</td></tr>
+</tbody>
+</table>
+</div>
+<p>Los dominios de hoy son los de Cloudflare (<code>*.mike-929.workers.dev</code>). Ninguna pantalla tiene todavía dominio propio; ponerlo es un paso de configuración, no de código, y es el mismo mecanismo que se usará para el dominio de cada empresa.</p>
+
+<h2>5 · Por qué es robusta y segura (para contarlo)</h2>
+<p>Esto es lo que se puede afirmar hoy, porque cada punto está construido y se prueba en cada publicación. Sirve tal cual para una ficha comercial.</p>
+<div class="dos">
+  <div class="bloque"><h3>Cada empresa, su propia base</h3><p>Los datos de una empresa viven en una base separada de las demás. No existe una consulta que pueda cruzar dos empresas: la API abre la base de la empresa de la sesión y de ninguna otra.</p></div>
+  <div class="bloque"><h3>Un solo lugar decide quién entra</h3><p>Todas las pantallas preguntan al mismo servidor. Suspender una empresa la apaga en todas sus apps al instante; apagar una app la apaga para todos sus usuarios.</p></div>
+  <div class="bloque"><h3>Entrada sin contraseñas débiles</h3><p>Código de un solo uso por correo, contraseña opcional con intentos limitados, o cuenta de Google. La sesión va en una cookie que el navegador no deja leer a ningún script.</p></div>
+  <div class="bloque"><h3>Roles con límites reales</h3><p>Dueño, administrador, socio y personal. Sólo un dueño nombra dueños, y el último dueño no se puede quitar. MASTER101 ve todo y lo deja apuntado en una bitácora.</p></div>
+  <div class="bloque"><h3>Nada llega a producción sin pasar por staging</h3><p>Cada cambio se publica primero en una copia idéntica, se prueba con un navegador real y con 219 pruebas del servidor, y sólo entonces se publica en producción, donde se vuelve a medir.</p></div>
+  <div class="bloque"><h3>Licencias verificables sin internet</h3><p>Los permisos de los programas de escritorio van firmados con criptografía de llave pública (Ed25519). La llave privada nace en el servidor y no sale de ahí; las apps sólo llevan la pública.</p></div>
+  <div class="bloque"><h3>Secretos fuera del código</h3><p>Las llaves de correo, Google y Cloudflare viven en los secretos de GitHub y del Worker, nunca en los repositorios. Los repositorios son públicos y se puede auditar cada línea.</p></div>
+  <div class="bloque"><h3>Sin servidores que administrar</h3><p>Todo corre en la red de Cloudflare: sin máquinas que parchar, escala sola y responde desde el punto más cercano al usuario, en México o donde esté.</p></div>
+</div>
+
+<h2>6 · ¿Se puede mover a AWS sin perder servicio?</h2>
+<p><b>Sí, y sin apagar nada, pero no es «sencillo»: es un proyecto de semanas, no de días, y una pieza cambia de forma.</b> La razón por la que es posible es la misma que hace robusta a la suite: todas las pantallas hablan con un solo servidor por contrato, y ese servidor está escrito en Hono, que corre igual en Cloudflare, en AWS Lambda o en un contenedor.</p>
+<div class="tabla">
+<table>
+<thead><tr><th>Hoy en Cloudflare</th><th>Equivalente en AWS</th><th>Qué tan directo</th></tr></thead>
+<tbody>
+<tr><td>Workers (pantallas y API)</td><td>Lambda detrás de CloudFront y API Gateway, o contenedores en Fargate</td><td><span class="pill bien">directo</span> el código es el mismo; cambia el empaquetado</td></tr>
+<tr><td>R2 (archivos)</td><td>S3</td><td><span class="pill bien">directo</span> R2 habla el mismo protocolo que S3; se copia con una herramienta estándar</td></tr>
+<tr><td>Pages (wall101)</td><td>S3 + CloudFront</td><td><span class="pill bien">directo</span></td></tr>
+<tr><td>D1 (base maestra)</td><td>Aurora Serverless (PostgreSQL) o RDS</td><td><span class="pill azul">moderado</span> es SQL estándar; hay que cambiar el dialecto de SQLite a PostgreSQL y las llamadas del Worker</td></tr>
+<tr><td>Un Durable Object por empresa</td><td>No tiene equivalente directo: un esquema por empresa en Aurora, o una base SQLite por empresa en EFS con Lambda</td><td><span class="pill pend">cambia de forma</span> es la pieza que hay que rediseñar; el aislamiento por empresa se conserva, el mecanismo no</td></tr>
+<tr><td>Service bindings (pantallas → API)</td><td>Llamadas HTTPS internas dentro de la VPC, o una función por pantalla</td><td><span class="pill azul">moderado</span></td></tr>
+<tr><td>GitHub Actions (publicar y probar)</td><td>Igual: GitHub Actions publicando a AWS</td><td><span class="pill bien">directo</span></td></tr>
+</tbody>
+</table>
+</div>
+<h3>Cómo se haría sin cortar el servicio</h3>
+<ul class="lista">
+  <li><b>Primero la API, en paralelo.</b> Se levanta suite101-api en AWS apuntando a copias de las bases, y se le corren las mismas 219 pruebas hasta que pase todo. Cloudflare sigue sirviendo mientras tanto.</li>
+  <li><b>Luego los datos, con doble escritura.</b> Durante el corte, la API escribe en las dos bases y lee de la vieja; cuando cuadran, lee de la nueva. Los archivos de R2 se copian a S3 de antemano y sólo se sincroniza lo nuevo.</li>
+  <li><b>Al final, el dominio.</b> Como las pantallas van por contrato y no por dirección fija, cambiar a dónde apunta el dominio es el último paso, y se puede regresar en minutos si algo falla.</li>
+</ul>
+<div class="aviso"><p><b>Recomendación:</b> no moverse ahora. Cloudflare cuesta hoy una fracción de lo que costaría AWS para el mismo tráfico, no hay máquinas que administrar, y nada de lo que se está construyendo (dominio por empresa, alta automática, cobro) ata más la suite a Cloudflare de lo que ya está. Lo que sí conviene desde hoy, y ya se cumple: mantener la API en Hono, los archivos en R2 con protocolo S3 y el SQL sin extensiones raras. Así la puerta a AWS queda abierta sin pagarla por adelantado.</p></div>
+
+<footer>Escrito por la sesión Jr. PROGRAMADOR a partir del código desplegado el 18 de septiembre de 2026. Fuente de cada dato: los archivos <code>wrangler.toml</code>, las migraciones y las rutas de suite101-api en sus repositorios.</footer>
+</div>

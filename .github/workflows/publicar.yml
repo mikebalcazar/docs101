@@ -1,0 +1,80 @@
+# Arma docs101 (python3 armar.py), lo publica en Cloudflare Pages como
+# «docs101» y luego mide lo publicado desde aquí, que sí alcanza pages.dev.
+# El resultado queda como comentario del commit (OPERAR.md §6).
+#
+# Secretos del repositorio: CLOUDFLARE_API_TOKEN (Pages:Edit) y
+# CLOUDFLARE_ACCOUNT_ID. Sin ellos, «Publicar» falla con 10000/Authentication.
+#
+# Va en docs101/.github/workflows/publicar.yml
+
+name: Publicar docs101
+
+on:
+  push:
+    branches: [main]
+    paths-ignore:
+      - '**.md'
+      - 'claude/**'
+  workflow_dispatch:
+
+permissions:
+  contents: write          # para dejar el comentario en el commit
+
+concurrency:
+  group: publicar
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    env:
+      CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+      CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+      PROYECTO: docs101
+      URL: https://docs101.pages.dev
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Armar
+        run: python3 armar.py
+
+      - name: Que el proyecto exista (la primera vez lo crea)
+        run: |
+          code=$(curl -s -o /dev/null -w '%{http_code}' \
+            -H "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+            "https://api.cloudflare.com/client/v4/accounts/$CLOUDFLARE_ACCOUNT_ID/pages/projects/$PROYECTO")
+          echo "Cloudflare contestó $code"
+          case "$code" in
+            200) echo "el proyecto ya existe" ;;
+            404) npx --yes wrangler@4 pages project create "$PROYECTO" --production-branch main ;;
+            *)   echo "no se pudo consultar Cloudflare (¿faltan los secretos?)"; exit 1 ;;
+          esac
+
+      - name: Publicar
+        run: npx --yes wrangler@4 pages deploy dist --project-name "$PROYECTO" --branch main --commit-dirty=true
+
+      - name: Medir lo publicado
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          # La respuesta se guarda en un archivo, no en una variable. Con
+          # cuerpo=$(curl ...) la sustitución de comando se come los saltos de
+          # línea finales, así que el cmp comparaba 2588 bytes contra los 2589
+          # del commit y salía distinto SIEMPRE, con el sitio publicado
+          # perfecto. Medido el 11-sep contra wall101.pages.dev.
+          esperado=$(grep -c '<a class="tarjeta"' dist/index.html)
+          for i in $(seq 1 18); do
+            sleep 10
+            curl -sL --max-time 20 "$URL/" -o /tmp/vivo.html || true
+            visto=$(grep -c '<a class="tarjeta"' /tmp/vivo.html 2>/dev/null || echo 0)
+            if [ "$visto" = "$esperado" ] && cmp -s /tmp/vivo.html dist/index.html; then
+              msg="docs101: $URL · $esperado páginas · idéntico al commit · intento $i · verde"
+              echo "$msg"
+              gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments" -f body="$msg" >/dev/null
+              exit 0
+            fi
+            echo "intento $i: $visto de $esperado páginas"
+          done
+          msg="docs101: $URL · lo publicado NO coincide tras 3 minutos · rojo"
+          echo "$msg"; gh api "repos/$GITHUB_REPOSITORY/commits/$GITHUB_SHA/comments" -f body="$msg" >/dev/null
+          exit 1
