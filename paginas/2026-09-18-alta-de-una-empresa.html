@@ -1,0 +1,150 @@
+<title>Alta de una empresa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · operación</p>
+  <h1>Alta de una empresa</h1>
+  <p class="lede">Lo que pasa, en orden, desde que MASTER101 llena un formulario hasta que el director de la empresa cliente entra a su panel y da de alta a su gente. Y cómo se cobra, se suspende y se reabre una empresa sin tocar código.</p>
+  <div class="meta"><span><b>Al 18 de septiembre de 2026</b></span><span>Contrato de la API <b>0.14.0</b></span><span>Pantalla: master101 → Alta de empresa</span></div>
+</header>
+
+<h2>El alta, en un paso</h2>
+<p>MASTER101 llena una sola pantalla: nombre e identificador de la empresa, razón social, RFC y teléfono, qué apps arrancan prendidas, el cobro (cortesía o pagada hasta un día) y el director: su correo, nombre y teléfono. Con un clic pasa todo esto:</p>
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1180 250" role="img" aria-label="Alta en un paso: master101 manda una sola petición a la API; la API guarda la empresa en la base maestra, crea su base propia, nombra al director como dueño, le manda la bienvenida por correo y lo apunta en la bitácora; el director entra a workshop101 con su correo y un código.">
+  <defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="40" width="180" height="90" rx="8"/>
+    <rect x="250" y="40" width="200" height="90" rx="8" stroke="#0080C1" stroke-width="2"/>
+    <rect x="500" y="20" width="200" height="130" rx="8"/>
+    <rect x="750" y="40" width="180" height="90" rx="8"/>
+    <rect x="980" y="40" width="180" height="90" rx="8"/>
+  </g>
+  <text x="110" y="66" text-anchor="middle" font-weight="600">MASTER101</text>
+  <text x="110" y="88" text-anchor="middle" opacity=".7">una pantalla, un clic</text>
+  <text x="110" y="106" text-anchor="middle" opacity=".7">master101 → Alta de empresa</text>
+  <text x="350" y="66" text-anchor="middle" font-weight="600" fill="#0080C1">suite101-api</text>
+  <text x="350" y="88" text-anchor="middle" opacity=".8">POST /admin/orgs</text>
+  <text x="350" y="106" text-anchor="middle" opacity=".7">todo en la misma petición</text>
+  <text x="600" y="44" text-anchor="middle" font-weight="600">Lo que queda hecho</text>
+  <text x="600" y="66" text-anchor="middle" opacity=".7">la empresa en la base maestra</text>
+  <text x="600" y="84" text-anchor="middle" opacity=".7">su base propia, migrada al día</text>
+  <text x="600" y="102" text-anchor="middle" opacity=".7">el director como dueño</text>
+  <text x="600" y="120" text-anchor="middle" opacity=".7">cobro: cortesía o pagada hasta…</text>
+  <text x="600" y="138" text-anchor="middle" opacity=".7">todo apuntado en la bitácora</text>
+  <text x="840" y="66" text-anchor="middle" font-weight="600">Correo de bienvenida</text>
+  <text x="840" y="88" text-anchor="middle" opacity=".7">Resend, al director</text>
+  <text x="840" y="106" text-anchor="middle" opacity=".7">con la liga a su panel</text>
+  <text x="1070" y="66" text-anchor="middle" font-weight="600">DIRECTOR101</text>
+  <text x="1070" y="88" text-anchor="middle" opacity=".7">entra con su correo y un código</text>
+  <text x="1070" y="106" text-anchor="middle" opacity=".7">y da de alta a su gente</text>
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fa)">
+    <line x1="200" y1="85" x2="248" y2="85"/>
+    <line x1="450" y1="85" x2="498" y2="85"/>
+    <line x1="700" y1="85" x2="748" y2="85"/>
+    <line x1="930" y1="85" x2="978" y2="85"/>
+  </g>
+  <text x="590" y="200" text-anchor="middle" opacity=".7">Si el correo no sale (fuera de producción está apagado a propósito), la empresa queda creada igual y la pantalla lo dice con palabras; la bienvenida se reenvía con un botón.</text>
+  <text x="590" y="222" text-anchor="middle" opacity=".7">Nada de esto guarda contraseñas: el director entra con un código que le llega al momento, y ahí mismo puede ponerse una o usar su cuenta de Google.</text>
+  </g>
+</svg>
+</div>
+<figcaption>Un solo formulario, una sola petición: la empresa nace completa y el director recibe su acceso sin que nadie le mande nada a mano.</figcaption>
+</figure>
+
+<h2>Cómo se cobra, se suspende y se reabre</h2>
+<p>Cada empresa está en uno de tres estados, y la API lo calcula sola en cada petición: nadie tiene que acordarse de apagar nada.</p>
+<div class="tabla">
+<table>
+<thead><tr><th>Estado</th><th>Cuándo</th><th>Qué ven sus usuarios</th><th>Qué ve el director</th></tr></thead>
+<tbody>
+<tr><td><span class="pill bien">activa</span></td><td>Es cortesía (sin fecha de pago) o está pagada hasta hoy o después.</td><td>Todo normal.</td><td>Todo normal.</td></tr>
+<tr><td><span class="pill pend">sin pago</span></td><td>Tenía fecha de pago y ya pasó. Vence sola al terminar ese día.</td><td>Sus apps contestan «la suscripción de la empresa venció»; no pierden datos.</td><td>Su panel sigue abriendo: puede ver a su gente y avisar. En cuanto MASTER101 marca el pago, todo vuelve en la siguiente petición.</td></tr>
+<tr><td><span class="pill mal">suspendida</span></td><td>MASTER101 la suspendió a mano (por lo que sea).</td><td>«La empresa está suspendida».</td><td>Tampoco entra. Se reactiva con un clic.</td></tr>
+</tbody>
+</table>
+</div>
+<ul class="lista">
+  <li><b>Cortesía</b> es la regla por omisión: una empresa sin fecha de pago no vence nunca. Así quedaron las que ya existían (las nuestras), y así se regala una.</li>
+  <li><b>Marcar pago</b> es escoger hasta qué día está pagada. Hoy lo hace MASTER101 a mano; cuando se conecte Stripe, la misma ruta (<code>POST /admin/orgs/:id/pago</code> con <code>origen: stripe</code>) lo hará sola con cada cobro.</li>
+  <li><b>Todo queda apuntado</b>: quién marcó qué pago, quién hizo cortesía a quién, cuándo salió la bienvenida. La bitácora la escribe la API; nadie la edita.</li>
+</ul>
+
+<h2>Lo que MASTER101 tiene ahora en su panel</h2>
+<ul class="lista">
+  <li><b>Alta de empresa</b>: el formulario de un paso descrito arriba.</li>
+  <li><b>Empresas</b>: la tabla dice el estado de cada una y hasta cuándo pagó o si es cortesía.</li>
+  <li><b>Dentro de una empresa</b>: «Plan y cobro» (marcar pago, hacer o quitar cortesía), «Datos de la empresa y del director» (editar, reenviar la bienvenida), su gente y su bitácora.</li>
+</ul>
+
+<h2>Lo que todavía no está</h2>
+<div class="aviso"><p><b>Dominio propio por empresa.</b> Hoy todas entran por las direcciones de Cloudflare. Ponerle un dominio a la suite y darle a cada empresa el suyo es configuración, no código, y se decidió dejarlo para después. <b>Stripe.</b> El cobro es a mano; la ruta de pago ya acepta el origen «stripe» para cuando se conecte. <b>quell101 y roster101</b> siguen guardando en bases propias de una sola empresa; para venderlas a terceros hay que mudarlas a la base por empresa.</p></div>
+
+<h2>Cómo se probó</h2>
+<ul class="lista">
+  <li>API: 125 pruebas en workerd, 6 nuevas para esto (alta en un paso, 402 con pago vencido y 200 en el panel, pago que reabre, cortesía, reenvío de bienvenida, director inválido). Humo en staging con la misma vuelta; en producción sólo se mira.</li>
+  <li>master101: recorrido «plan y cobro» con navegador contra staging, 13 revisiones, más el alta con cortesía; sin scroll horizontal, cero errores de JavaScript.</li>
+  <li>peek101 y quell101 traducen el nuevo estado a palabras para sus usuarios.</li>
+</ul>
+
+<footer>Escrito por la sesión Jr. PROGRAMADOR a partir del código publicado el 18 de septiembre de 2026 (suite101-api #72, master101 #11, peek101 #10, quell101 #68).</footer>
+</div>
