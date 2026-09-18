@@ -92,7 +92,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 <div class="capas">
   <div class="capa"><p class="nombre">MASTER101</p><p class="quien">Nosotros, los dueños de la suite.</p><p class="hoy">Hoy: <b>master101</b>. Abre y suspende empresas, prende y apaga apps, nombra superadmins, administra licencias.</p></div>
   <div class="capa"><p class="nombre">DIRECTOR101</p><p class="quien">La persona que la empresa cliente designa para administrar a su gente.</p><p class="hoy">Hoy: <b>workshop101</b> (rol <code>owner</code> o <code>admin</code>). Da de alta a su personal, roles y a qué apps entra cada quien.</p></div>
-  <div class="capa"><p class="nombre">suite101</p><p class="quien">Los usuarios de la empresa, con correo y contraseña o cuenta de Google.</p><p class="hoy">Hoy: <b>dash101, quote101, quell101, roster101, SUPERVISOR</b>. Una sola sesión sirve para todas.</p></div>
+  <div class="capa"><p class="nombre">suite101</p><p class="quien">Los usuarios de la empresa, con correo y contraseña o cuenta de Google.</p><p class="hoy">Hoy: <b>dash101, quote101, quell101, roster101</b>. Una sola sesión sirve para todas. SUPERVISOR se retira: sus funciones pasan a quell101.</p></div>
   <div class="capa"><p class="nombre">apps 101</p><p class="quien">Usuarios finales: clientes del taller, público, o quien compra una licencia.</p><p class="hoy">Hoy: <b>peek101</b> (portal del cliente, sólo lectura) y <b>draw101, nest101, shape101</b> en Windows con licencia por suscripción.</p></div>
 </div>
 
@@ -148,9 +148,9 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
   <text x="400" y="152" text-anchor="middle" font-weight="600">workshop101</text>
   <text x="400" y="172" text-anchor="middle" opacity=".7">su gente, roles y accesos</text>
   <text x="400" y="234" text-anchor="middle" font-weight="600">dash101 · quote101 · quell101</text>
-  <text x="400" y="254" text-anchor="middle" font-weight="600">roster101 · SUPERVISOR</text>
+  <text x="400" y="254" text-anchor="middle" font-weight="600">roster101</text>
   <text x="400" y="278" text-anchor="middle" opacity=".7">negocio, cotizaciones, bitácora de obra,</text>
-  <text x="400" y="296" text-anchor="middle" opacity=".7">trabajadores, taller</text>
+  <text x="400" y="296" text-anchor="middle" opacity=".7">trabajadores (el taller pasa a quell101)</text>
   <text x="400" y="316" text-anchor="middle" opacity=".7">staging y producción de cada una</text>
   <text x="400" y="376" text-anchor="middle" font-weight="600">peek101</text>
   <text x="400" y="396" text-anchor="middle" opacity=".7">portal del cliente · sólo lectura</text>
@@ -236,11 +236,11 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
   <text x="1105" y="232" text-anchor="middle" font-weight="600" font-size="11">Bases propias</text>
   <text x="1105" y="250" text-anchor="middle" opacity=".7" font-size="11">quell101 (D1+R2)</text>
   <text x="1105" y="266" text-anchor="middle" opacity=".7" font-size="11">roster101 (D1+R2)</text>
-  <text x="1105" y="282" text-anchor="middle" opacity=".7" font-size="11">SUPERVISOR (D1)</text>
+  <text x="1105" y="282" text-anchor="middle" opacity=".7" font-size="11">SUPERVISOR (D1, se retira)</text>
   <text x="1105" y="306" text-anchor="middle" opacity=".7" font-size="11">hoy de una sola</text>
   <text x="1105" y="320" text-anchor="middle" opacity=".7" font-size="11">empresa; por mudar</text>
   <path d="M550 300 C 700 600, 1105 600, 1105 342" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="5 4" marker-end="url(#fl)"/>
-  <text x="860" y="596" text-anchor="middle" font-size="11" opacity=".7">esas tres apps guardan sus propios datos directamente (sin pasar por la API)</text>
+  <text x="860" y="596" text-anchor="middle" font-size="11" opacity=".7">esas apps guardan sus propios datos directamente (sin pasar por la API)</text>
 
   <!-- publicación -->
   <rect x="20" y="620" width="1140" height="56" rx="8" fill="none" stroke="currentColor" stroke-width="1" opacity=".55"/>
@@ -312,7 +312,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
     <rect x="20" y="244" width="260" height="120" rx="8"/>
     <rect x="320" y="244" width="260" height="120" rx="8"/>
     <rect x="620" y="244" width="260" height="120" rx="8"/>
-    <rect x="920" y="244" width="240" height="120" rx="8"/>
+    <rect x="920" y="244" width="240" height="124" rx="8"/>
   </g>
   <text x="150" y="270" text-anchor="middle" font-weight="600">Dominio propio por empresa</text>
   <text x="150" y="292" text-anchor="middle" opacity=".7">empresa.suite101.mx o su dominio</text>
@@ -328,11 +328,12 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
   <text x="750" y="308" text-anchor="middle" opacity=".7">suspensión sola al vencer</text>
   <text x="750" y="324" text-anchor="middle" opacity=".7">(las licencias de escritorio ya lo tienen;</text>
   <text x="750" y="340" text-anchor="middle" opacity=".7">las empresas todavía no)</text>
-  <text x="1040" y="270" text-anchor="middle" font-weight="600">Tres apps a la base por empresa</text>
-  <text x="1040" y="292" text-anchor="middle" opacity=".7">quell101, roster101 y SUPERVISOR</text>
+  <text x="1040" y="270" text-anchor="middle" font-weight="600">Dos apps a la base por empresa</text>
+  <text x="1040" y="292" text-anchor="middle" opacity=".7">quell101 y roster101</text>
   <text x="1040" y="308" text-anchor="middle" opacity=".7">guardan hoy en bases propias de</text>
   <text x="1040" y="324" text-anchor="middle" opacity=".7">una sola empresa; para venderlas</text>
-  <text x="1040" y="340" text-anchor="middle" opacity=".7">deben guardar en la base de cada org</text>
+  <text x="1040" y="340" text-anchor="middle" opacity=".7">deben guardar en la base de cada org.</text>
+  <text x="1040" y="356" text-anchor="middle" opacity=".7">(SUPERVISOR se retira; el taller va a quell101)</text>
   <text x="590" y="400" text-anchor="middle" opacity=".7">Ninguna de las cuatro requiere rehacer lo que existe: son columnas, rutas y pantallas nuevas sobre la misma API.</text>
   </g>
 </svg>
@@ -410,7 +411,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 <tr><td><b>peek101</b></td><td class="mono">peek101</td><td>Portal del cliente final, sólo lectura</td><td>Worker</td><td>por la API</td></tr>
 <tr><td><b>quell101</b></td><td class="mono">bitacora-obra</td><td>Bitácora de obra con fotos y punchlist</td><td>Worker</td><td>D1 y R2 propios <span class="pill pend">por mudar</span></td></tr>
 <tr><td><b>roster101</b></td><td class="mono">t101-portal-trabajadores</td><td>Expedientes de trabajadores</td><td>Worker (Hono)</td><td>D1 y R2 propios <span class="pill pend">por mudar</span></td></tr>
-<tr><td><b>SUPERVISOR</b></td><td class="mono">taller101</td><td>El mapa del taller: mueble por etapa</td><td>Worker</td><td>D1 propio <span class="pill pend">por mudar</span></td></tr>
+<tr><td><b>SUPERVISOR</b></td><td class="mono">taller101</td><td>El mapa del taller: mueble por etapa. <span class="pill pend">se retira</span> Sus funciones se integran en quell101 más adelante.</td><td>Worker (todavía en línea)</td><td>D1 propio</td></tr>
 <tr><td><b>draw101 · nest101 · shape101</b></td><td class="mono">draw101 · nest101 · shape101</td><td>Programas de escritorio para Windows</td><td>En la máquina del cliente</td><td>archivos locales · licencia por la API</td></tr>
 <tr><td><b>descargas</b></td><td class="mono">descargas</td><td>Los instaladores y su sitio</td><td>GitHub Releases + sitio</td><td>—</td></tr>
 <tr><td><b>wall101</b></td><td class="mono">wall101</td><td>El muro de entregas para Mike</td><td>Cloudflare Pages</td><td>—</td></tr>
