@@ -1,0 +1,167 @@
+<title>roster101 en la base de la empresa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>roster101 en la base de la empresa</h1>
+  <p class="lede">Los expedientes de trabajadores dejaron de tener base propia: viven en la base por empresa de la suite, junto con los de las demás apps, y su motor corre dentro de la API. Es la segunda app que se muda, tras quell101, y con ella se retira la «central» de roster101: el alta de una empresa va por master101. Las dos puertas —el trabajador con su correo y un código, la empresa con su cuenta de la suite— siguen siendo dos.</p>
+  <div class="meta"><span><b>Al 19 de septiembre de 2026</b></span><span>Contrato de la API <b>0.17.0</b></span><span>Decisiones de Mike: todo en la base de la suite · retirar la central · un Worker por empresa</span></div>
+</header>
+
+<h2>Antes y después</h2>
+<p>Hasta el 19 de septiembre cada empresa tenía un Worker de roster101 con su base D1 y su bucket R2 propios, y aparte existía la «central»: un registro donde una empresa nueva entregaba sus papeles y roster101 le abría su portal (tenía cero empresas). Desde el 19, el Worker de cada empresa sólo sirve la pantalla y todo lo demás está en la suite; la central se retiró.</p>
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1180 310" role="img" aria-label="Antes: un Worker por empresa con pantalla, motor, base D1 y bucket propios, más una central aparte. Después: el Worker de cada empresa sólo con la pantalla, que reenvía todo a la API con la empresa de su configuración; dentro de la API, la puerta de roster101 y el Durable Object de esa empresa, con el motor y sus tablas roster_ junto a las de las demás apps; los documentos en el bucket de la suite.">
+  <defs><marker id="fa" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <text x="20" y="28" font-weight="600" opacity=".8">ANTES</text>
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="40" width="360" height="110" rx="8"/>
+    <rect x="34" y="66" width="70" height="34" rx="6"/><rect x="112" y="66" width="70" height="34" rx="6"/><rect x="190" y="66" width="86" height="34" rx="6"/><rect x="284" y="66" width="84" height="34" rx="6"/>
+    <rect x="20" y="170" width="360" height="60" rx="8" stroke-dasharray="4 3"/>
+    <rect x="430" y="60" width="130" height="70" rx="8"/>
+  </g>
+  <text x="200" y="58" text-anchor="middle" font-weight="600">Worker de roster101 de cada empresa</text>
+  <text x="69" y="87" text-anchor="middle" opacity=".8">pantalla</text>
+  <text x="147" y="87" text-anchor="middle" opacity=".8">motor</text>
+  <text x="233" y="87" text-anchor="middle" opacity=".8">base D1</text>
+  <text x="326" y="87" text-anchor="middle" opacity=".8">bucket R2</text>
+  <text x="200" y="128" text-anchor="middle" opacity=".65">una base y un bucket por empresa, sin staging</text>
+  <text x="200" y="196" text-anchor="middle" font-weight="600" opacity=".8">la «central» de roster101</text>
+  <text x="200" y="215" text-anchor="middle" opacity=".65">registro de empresas y panel maestro · cero empresas</text>
+  <text x="495" y="90" text-anchor="middle" font-weight="600">suite101-api</text>
+  <text x="495" y="110" text-anchor="middle" opacity=".7">sólo el panel (/yo)</text>
+  <line x1="380" y1="95" x2="428" y2="95" stroke="currentColor" stroke-width="1.2" marker-end="url(#fa)" stroke-dasharray="4 3"/>
+
+  <text x="620" y="28" font-weight="600" opacity=".8">DESPUÉS</text>
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="620" y="40" width="150" height="120" rx="8"/>
+    <rect x="820" y="40" width="340" height="250" rx="8" stroke="#0080C1" stroke-width="2"/>
+    <rect x="836" y="70" width="308" height="48" rx="6"/>
+    <rect x="836" y="132" width="308" height="144" rx="6"/>
+    <rect x="850" y="188" width="130" height="70" rx="6"/><rect x="996" y="188" width="134" height="70" rx="6"/>
+  </g>
+  <text x="695" y="66" text-anchor="middle" font-weight="600">Worker de la empresa</text>
+  <text x="695" y="90" text-anchor="middle" opacity=".8">sólo la pantalla</text>
+  <text x="695" y="110" text-anchor="middle" opacity=".65">reenvía /api a la suite</text>
+  <text x="695" y="126" text-anchor="middle" opacity=".65">con ORG_ID y los datos</text>
+  <text x="695" y="142" text-anchor="middle" opacity=".65">de la empresa (X-Roster)</text>
+  <line x1="770" y1="95" x2="818" y2="95" stroke="currentColor" stroke-width="1.2" marker-end="url(#fa)"/>
+  <text x="990" y="60" text-anchor="middle" font-weight="600" fill="#0080C1">suite101-api</text>
+  <text x="990" y="88" text-anchor="middle" opacity=".8">la puerta /roster/{empresa}: empresa activa · app prendida</text>
+  <text x="990" y="106" text-anchor="middle" opacity=".8">sesión de la suite si viene (el panel); el trabajador, con su cookie</text>
+  <text x="990" y="154" text-anchor="middle" font-weight="600">la base de la empresa (un Durable Object con SQLite)</text>
+  <text x="990" y="174" text-anchor="middle" opacity=".7">/roster/{empresa}/api/*</text>
+  <text x="915" y="212" text-anchor="middle" opacity=".8">motor de roster101</text>
+  <text x="915" y="230" text-anchor="middle" opacity=".65">el mismo código,</text>
+  <text x="915" y="246" text-anchor="middle" opacity=".65">las mismas reglas</text>
+  <text x="1063" y="212" text-anchor="middle" opacity=".8">tablas roster_*</text>
+  <text x="1063" y="230" text-anchor="middle" opacity=".65">junto a quell_*, negocios,</text>
+  <text x="1063" y="246" text-anchor="middle" opacity=".65">ítems, clientes…</text>
+  <text x="590" y="304" text-anchor="middle" opacity=".7">Documentos: en el bucket de la suite, bajo orgs/{empresa}/roster/. Correo: lo manda la suite con el remitente de la empresa. Staging: t101-portal-staging contra la API de staging y la empresa demo.</text>
+  </g>
+</svg>
+</div>
+<figcaption>La pantalla no cambió y las reglas tampoco: lo que se movió fue dónde corren y dónde guardan. La central desapareció porque master101 ya hace lo que hacía.</figcaption>
+</figure>
+
+<h2>Por qué así</h2>
+<ul class="lista">
+  <li><b>Una base por empresa, para todo.</b> Los expedientes viven junto a las obras de quell101 y las cuentas de dash101, en la base que nace sola al primer uso. Si una empresa apaga roster101, sus expedientes siguen ahí; si la reactiva, los vuelve a ver.</li>
+  <li><b>El motor se movió tal cual.</b> Los frenos de datos repetidos, la papelera de 30 días, las fichas en PDF, la exportación en ZIP, los tres niveles del panel y sus candados: es el mismo archivo que corría en el Worker, con cuatro cambios (tablas con prefijo, la sesión la da la puerta de la suite, documentos en el bucket de la suite, los datos de la empresa llegan en cada petición). Por eso sus pruebas pasaron a la API sin reescribirse.</li>
+  <li><b>Las dos puertas siguen siendo dos.</b> Mike lo decidió el 16 de septiembre: el trabajador entra con su correo y un código, sin cuenta en la suite, y así sigue; sólo que ahora su cookie la firma el secreto de la suite. El panel entra con la cuenta de la suite. Por eso roster101 tiene su propia puerta en la API (<code>/roster/…</code>) en vez de colgar de la de siempre, que exige sesión para todo.</li>
+  <li><b>Un Worker por empresa, como siempre.</b> Mike escogió seguir así en vez de un solo portal con la empresa en la liga. Cada empresa tiene su dirección y su Worker; lo que ya no tiene es base ni bucket propios: el Worker sólo sabe de qué empresa es (<code>ORG_ID</code>) y cómo se llama en lo que ve su gente.</li>
+  <li><b>La central se retiró.</b> Tenía cero empresas y hacía a mano lo que master101 hace desde el 18 de septiembre: dar de alta una empresa. Ahora el alta es: la empresa en master101 con roster101 prendida, y un archivo de configuración para su Worker. El dueño y la administración de la empresa abren el panel como dueños desde el primer día, sin que nadie los apunte.</li>
+  <li><b>roster101 ganó staging.</b> Antes cada cambio se probaba contra los expedientes de verdad. Ahora hay un Worker de staging contra la API de staging y la empresa demo, y el despliegue entra al panel, entra como trabajador, acepta el aviso y borra lo que creó antes de tocar producción.</li>
+</ul>
+
+<h2>Cómo se trajeron los datos</h2>
+<p>La mudanza es una ruta de la API que sólo abre el dueño de la suite, con un botón en master101 dentro de cada empresa. Primero <b>cuenta sin escribir</b> (cuántos expedientes, documentos, avisos aceptados, cuentas del panel, y cuáles de ésas no tienen todavía cuenta en la suite); si cuadra, <b>trae de verdad</b>: filas con la misma llave y la misma fecha, documentos copiados al bucket de la suite bajo la empresa. Se puede repetir: lo que ya está se actualiza, nada se borra.</p>
+<div class="tabla">
+<table>
+<thead><tr><th>Qué</th><th>De dónde</th><th>A dónde</th></tr></thead>
+<tbody>
+<tr><td>Expedientes, consentimientos, papelera, bitácora</td><td>la D1 <code>t101-trabajadores</code></td><td>las tablas <code>roster_*</code> de la base de la empresa</td></tr>
+<tr><td>Las cuentas del panel (de qué nivel es cada quien)</td><td><code>administradores</code> de esa D1</td><td><code>roster_administradores</code>; se dice cuáles no tienen cuenta en la suite todavía</td></tr>
+<tr><td>Documentos</td><td>el bucket <code>t101-documentos</code></td><td>el bucket <code>suite101</code>, bajo <code>orgs/{empresa}/roster/</code>, con la misma llave</td></tr>
+<tr><td>Los códigos de acceso y las tablas de la contraseña vieja del panel</td><td colspan="2">se quedan atrás: valen diez minutos, o ya estaban vacías</td></tr>
+</tbody>
+</table>
+</div>
+<div class="aviso"><p><b>La base y el bucket viejos no se borran el mismo día.</b> Quedan en Cloudflare, sin que nadie los lea, como red de seguridad. Se borran cuando la mudanza lleve unos días sin sorpresas.</p></div>
+
+<h2>Lo que cambia para cada quien</h2>
+<ul class="lista">
+  <li><b>Para el trabajador:</b> nada a la vista. Misma dirección, misma pantalla, mismo correo y código. Quien tenía la sesión abierta vuelve a pedir su código una vez.</li>
+  <li><b>Para la administración de la empresa:</b> nada a la vista. El dueño y la administración de la empresa entran como dueños del panel aunque nadie los haya dado de alta en él.</li>
+  <li><b>Para MASTER101:</b> dentro de cada empresa ve cuántos expedientes, documentos y cuentas del panel tiene en roster101, y el botón de la mudanza. Y da de alta empresas para roster101, que antes era cosa de la central.</li>
+  <li><b>Para la seguridad:</b> los documentos se sirven desde dentro de la base de la empresa: quién puede ver cada uno lo dice la base (su dueño o el panel), no la dirección. Nada de una empresa se alcanza desde la puerta de otra.</li>
+</ul>
+
+<h2>Cómo se probó</h2>
+<ul class="lista">
+  <li>API: 275 pruebas en workerd, 28 nuevas: la puerta (sin X-App, sin empresa, con roster101 apagada), quién entra al panel (el dueño de la suite y el de la empresa como dueños; sin roster en su lista, 401; consulta no exporta; apagar una cuenta surte efecto al momento; el último dueño no se borra), el trabajador por su puerta (código, cookie, aviso obligatorio, un documento que ve él y el panel pero no otro trabajador, la CURP repetida que no se guarda), el panel (captura a nombre del trabajador, fichas en PDF y ZIP, exportación, bitácora, papelera con el choque de NSS y el borrado con documentos), y la mudanza desde una D1 sembrada con el esquema real: en seco no escribe; de verdad trae filas y archivos; repetirla no duplica.</li>
+  <li>roster101: el cascarón con una suite de mentiras (22 comprobaciones: ruta, empresa, cookies, datos de la empresa en ASCII, cuerpos JSON y multipart) y el humo de staging de punta a punta en cada despliegue.</li>
+  <li>master101: el recorrido con navegador contra staging (el bloque cuenta lo que hay; contar en seco contesta con palabras).</li>
+</ul>
+
+<footer>Escrito por la sesión Jr. PROGRAMADOR a partir del código publicado el 19 de septiembre de 2026 (suite101-api #80 y #81, master101 #13, t101-portal-trabajadores #21).</footer>
+</div>
