@@ -62,7 +62,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
   <p class="eyebrow">Suite 101 · arquitectura</p>
   <h1>Órdenes de compra y contabilidad fiscal</h1>
   <p class="lede">Cualquiera de la empresa pide una compra desde su teléfono y le cae directa al buzón de quien paga, sin que nadie la autorice antes. Al marcarla pagada, dash101 registra el egreso solo, guarda el comprobante y le avisa por correo a quien la pidió. Encima va la contabilidad fiscal, y su idea manda sobre todo lo demás: no hay dos contabilidades. Hay una sola lista de movimientos, y la fiscal es esa misma lista filtrada por «facturado».</p>
-  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.21.1</b></span><span>Migraciones del OrgDB <b>0008</b> y <b>0009</b></span><span>Once decisiones de Mike, 19-sep</span></div>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.21.3</b></span><span>Migraciones del OrgDB <b>0008</b> y <b>0009</b></span><span>Once decisiones de Mike, 19-sep</span></div>
 </header>
 
 <h2>El camino de una compra</h2>
@@ -154,6 +154,12 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 
 <p>Así <code>subtotal + iva</code> da el total exacto siempre, que es lo que no pasa cuando se multiplica dos veces. La tasa viaja en <b>puntos base</b> (1600 = 16.00 %) para que no haya decimales en la base, y es editable: hay retención, tasa cero y exento. Si la pantalla no lo toca, lo calcula el servidor, y así la fórmula existe una sola vez en la plataforma.</p>
 
+<h2>Un negocio a la vez</h2>
+
+<p>Una empresa puede tener varios negocios, y el RFC vive en el negocio, no en la empresa. Por eso el buzón, mis órdenes y las cuatro consultas fiscales aceptan <code>negocio_id</code>: con él, la lista <b>y sus totales</b> son de ese negocio.</p>
+
+<p class="aviso">Que el total salga de la misma consulta que la lista no es un detalle de implementación. Un «hay por pagar» calculado aparte del listado acaba diciendo un número que los renglones de abajo no explican, y en lo fiscal es peor: un IVA del mes que sume dos negocios no es el IVA de ninguno de los dos, y es la cifra con la que se entera al SAT.</p>
+
 <h2>Lo que estas tablas no hacen</h2>
 
 <ul class="lista">
@@ -165,6 +171,8 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 <h2>Cómo quedó medido</h2>
 
 <p>302 pruebas de la API en verde, más 31 comprobaciones de las migraciones con <code>sqlite3</code> en memoria que confirman que ninguna cifra vieja se movió. En dash101, 84 pruebas, 18 de ellas contra staging midiendo que lo que llega a las pantallas está en pesos, y un recorrido con navegador a 390 × 844 que pide una compra con foto, la paga y la ve cambiar. El humo contra staging y producción, 200 de 200.</p>
+
+<p>Y la captura de la demo encontró lo que ninguna prueba buscaba: el buzón mezclaba los negocios de la empresa. De ahí salieron los contratos 0.21.2 y 0.21.3.</p>
 
 <p>El humo encontró algo que las pruebas en memoria no: quien abre una empresa como dueño sin ser miembro de ella —el superadmin de la suite— no se podía marcar a sí mismo como quien paga, y en una empresa recién dada de alta eso dejaba la pantalla vacía y a nadie que pudiera pagar. Se corrigió en el contrato 0.21.1, con su caso de prueba.</p>
 </div>
