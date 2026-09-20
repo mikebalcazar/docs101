@@ -1,0 +1,126 @@
+<title>La identidad de un ítem, y el estado de cuenta</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>La identidad de un ítem, y el estado de cuenta</h1>
+  <p class="lede">Dos apps hablan de la misma pieza de mueble. ¿Qué campo dice que son la misma? La respuesta —el código, no el nombre— decide qué se unifica solo, qué se pregunta y qué se deja en paz. Y de paso: por qué el estado de cuenta de un cliente no se pudo sacar de la pantalla que ya existía.</p>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.28.0</b> y <b>0.29.0</b></span></div>
+</header>
+
+<h2>El error de diseño: creer que el parecido basta</h2>
+
+<p>La primera versión del emparejado proponía sola: buscaba por código, luego por nombre, y ofrecía aceptar o rechazar. Acierta casi siempre, así que pareció suficiente.</p>
+
+<p>No lo es, y la razón no tiene nada que ver con qué tan bueno sea el algoritmo. <b>Una propuesta binaria sirve cuando el sistema tiene razón; cuando se equivoca, rechazarla deja a la persona sin nada.</b> El trabajo que de verdad hay que hacer —«éste es aquél»— no se podía hacer desde la pantalla.</p>
+
+<p>La forma correcta es al revés: el desplegable con todos los candidatos <i>siempre</i>, y la sugerencia ya escogida dentro de él. En el caso bueno se teclea igual de rápido —no hay que escoger nada—, y el caso malo tiene solución. El acierto promedio del algoritmo no es una interfaz.</p>
+
+<h2>Cuál campo es la identidad</h2>
+
+<p>Un ítem tiene código (<code>CAR-01</code>, <code>PT-09</code>), nombre y descripción. Las dos apps llevan código y nombre; la descripción sólo la tiene dash101, porque una pieza en un plano no necesita párrafos.</p>
+
+<p>La pregunta que importa no es «¿qué nombre se queda?». Es <b>cuál de los campos dice que dos renglones son el mismo objeto</b>. Y es el código: es lo que alguien teclea para nombrar una pieza y encontrarla en las dos pantallas. El nombre es una descripción corta, y cada app puede tener la suya sin que nadie se confunda.</p>
+
+<p>Esa respuesta reparte el trabajo en tres, y sólo uno necesita a una persona:</p>
+
+<ul>
+<li><b>Un lado lo trae y el otro no</b> → se copia, sin preguntar. Eso es llenar un hueco, no decidir, y preguntarlo sería estorbar con una elección que no existe.</li>
+<li><b>Los dos traen el mismo</b> → no hay nada que hacer.</li>
+<li><b>Los dos traen y son distintos</b> → ahí sí decide una persona. Y si nadie decide, <b>no se toca ninguno</b>: inventarle un ganador a dos códigos que alguien tecleó a propósito es exactamente lo que un sistema no debe hacer solo.</li>
+</ul>
+
+<p>El nombre queda fuera de esa mecánica. Los dos lados siempre lo traen, así que nunca hay hueco que llenar: o cada uno conserva el suyo —lo que está marcado por omisión— o alguien escoge, y entonces queda en los dos lados. La descripción no entra en absoluto.</p>
+
+<p>La regla general, que sirve para cualquier par de sistemas que compartan datos: <b>antes de preguntar cuál valor gana, hay que saber cuál campo es la identidad.</b> La identidad se unifica; lo demás se deja en paz. Tener dos vistas del mismo objeto no es una inconsistencia — es para lo que sirve tener dos apps.</p>
+
+<h2>Un guardado que valida a medio camino miente</h2>
+
+<p>La primera versión del aplicado hacía esto: escribir la liga, y después revisar que el código no chocara con el de otra pieza. Cuando chocaba, contestaba <code>409</code>.</p>
+
+<p>El problema no es el 409. Es que <b>la pieza se quedaba ligada de todos modos</b>. El mensaje decía «no se hizo» y sí se había hecho la mitad, que es peor que fallar entero: quien lo recibe cree que puede reintentar desde cero, y no puede.</p>
+
+<p>Ahora son dos pasadas: se valida todo —que las piezas sean de esa obra, que los ítems sean de ese proyecto, que haya cupo, que ningún código choque— y sólo si todo cuadra se escribe. Cuesta una pasada más sobre datos que ya están en memoria.</p>
+
+<p>Y la cuenta del cupo se lleva <b>dentro del envío</b>, no sólo contra la base. Dos piezas asignadas al mismo ítem de cantidad 1 en la misma llamada pasarían las dos: cada una, mirando la base, ve cero piezas ligadas. Es el mismo error de siempre —validar cada renglón contra un estado que los renglones anteriores ya cambiaron— y no lo atrapa ninguna restricción de la base, porque en la base cada fila es legal por separado.</p>
+
+<h2>El estado de cuenta, y por qué no salió de lo que ya había</h2>
+
+<p>Ya existía <code>/peek</code>: lo que un cliente ve de sí mismo en su portal, con sus proyectos y sus pagos. Parecía la mitad del trabajo hecho.</p>
+
+<p>No lo era, por una línea de SQL. Los pagos de <code>peek</code> salen de un <code>JOIN</code> contra <code>proyectos</code>, así que un cobro que no cuelga de ningún proyecto —un anticipo recibido antes de abrirlo, un pago suelto— <b>no aparece</b>. Para mirar por encima está bien. Para un documento que alguien va a mandarle a su cliente, esa omisión es la diferencia entre cuadrar y que le reclamen: el cliente suma sus transferencias, le da más de lo que dice el papel, y a partir de ahí no le cree a ninguno de los dos números.</p>
+
+<p>La ruta nueva usa un <code>LEFT JOIN</code> con una condición en dos partes: los cobros de los proyectos de ese cliente, <i>y</i> los que traen su nombre como contraparte aunque no cuelguen de ninguno.</p>
+
+<p>Y todo —los totales y cada renglón— sale de <b>una sola consulta</b>. Es la misma lección que <code>peek</code> aprendió a golpes en septiembre: cuando el KPI y la tabla salen de dos consultas, un día se contradicen y las dos se ven ciertas. Aquí el saldo global es, por construcción, la suma de los renglones que se están imprimiendo.</p>
+
+<h2>El PDF que no se genera</h2>
+
+<p>El estado de cuenta se exporta a PDF con la impresión del navegador, no con una librería en el servidor. Es una decisión, no un atajo.</p>
+
+<p>Un generador de PDF dentro de un Worker es una dependencia grande que hay que mantener, pesa en cada arranque en frío, y obliga a preocuparse por la memoria el día que un cliente traiga cien renglones. La impresión del navegador ya resuelve el problema, sale idéntica en cualquier máquina, y de paso deja escoger tamaño de hoja y márgenes.</p>
+
+<p>Lo que sí es trabajo de la app es que la hoja se lea como un documento y no como una captura de pantalla: sin menú ni botones, sin fondos que se comen la tinta, y con las reglas que impiden que un renglón de tabla se parta entre dos hojas. Eso son veinte líneas de <code>@media print</code>.</p>
+
+<h2>Cómo quedó medido</h2>
+
+<p>404 pruebas de la API y 143 de dash101. Las que cuidan lo de arriba son cuatro: que un rechazo al emparejar deje las cosas exactamente como estaban; que dos piezas al mismo ítem en un solo envío no pasen ni una; que el saldo global sea renglón por renglón la suma de lo que se enseña; y que los cobros de <b>otro</b> cliente no se cuelen — en una cuenta que se manda por correo, un renglón ajeno no es un detalle de presentación, es una fuga de lo que otro cliente pagó.</p>
+</div>
