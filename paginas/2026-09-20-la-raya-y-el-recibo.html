@@ -1,0 +1,124 @@
+<title>La raya: lo que se le paga a la gente</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>La raya: lo que se le paga a la gente</h1>
+  <p class="lede">Un taller le paga a su gente cada semana y lo apunta en una libreta. Esto es esa libreta, con tres cosas que una libreta no puede: que el dinero salga de una cuenta de verdad, que el estado de cuenta diga a quién se le pagó, y que lo que gana cada quien no lo vea cualquiera. Lo que NO hace —calcular IMSS e ISR— es la decisión más importante del diseño.</p>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.27.0</b></span><span>Migración del OrgDB <b>0014</b></span></div>
+</header>
+
+<h2>Lo que a propósito no hace</h2>
+
+<p>No calcula retenciones. No genera CFDI de nómina. No sabe de IMSS, de INFONAVIT ni de subsidio al empleo.</p>
+
+<p>Esto no es una versión incompleta a la que le faltan cosas: es el alcance que se escogió al analizarlo, y conviene decir por qué. <b>Una retención mal calculada no falla el día que se calcula.</b> Falla meses después, en una revisión, con recargos y multa, y para entonces ya se repitió cincuenta veces. Un sistema que se equivoca en voz baja y con autoridad es peor que no tener sistema: quien lleva eso hoy lo lleva con su contador, y lo revisa una persona que sabe.</p>
+
+<p>Lo que sí hacía falta, y hoy se hace en papel, es apuntar qué se le pagó a cada quien, de dónde salió, y que quede un recibo. Eso es lo que hay aquí, completo.</p>
+
+<h2>Un movimiento por persona</h2>
+
+<p>Al pagar un corte de raya se crea un egreso <b>por cada persona</b>, con su nombre, y no un solo egreso por el total.</p>
+
+<p>Cuesta más filas y es lo correcto. Con un egreso global, conciliar contra el banco se vuelve adivinar: el estado de cuenta dice «RAYA 6,400» y no dice a quién. Y corregirle el monto a una persona obligaría a tocar el pago de todas, que es exactamente el tipo de operación donde se pierde dinero sin que nadie lo note.</p>
+
+<p>Con un renglón por persona, el movimiento de cada quien se corrige solo, en la misma pantalla de movimientos donde se corrige cualquier otro.</p>
+
+<h2>Lo que la pantalla NO calcula</h2>
+
+<p>El neto de cada renglón —sueldo más extras menos descuentos— y el total del corte los calcula el servidor. La pantalla enseña una suma mientras se teclea, y lo dice con esas palabras: «la cuenta buena la hace el servidor al guardar; esto es para leerlo».</p>
+
+<p>Es la misma regla que <code>precio_venta</code> en los proyectos, y por el mismo motivo: si el total viniera de la pantalla, dos personas capturando a la vez mandarían dos totales distintos y los dos se creerían. Una cifra de dinero tiene un solo lugar donde se calcula.</p>
+
+<h2>El nombre se congela</h2>
+
+<p>Cada renglón guarda el nombre de la persona <b>copiado</b>, no apuntado por llave a <code>personal</code>.</p>
+
+<p>Parece un descuido de principiante y es lo contrario. Un recibo dice a quién se le pagó <i>ese día</i>. Si el nombre saliera de la tabla de gente, corregir un apellido mal escrito el año que entra reescribiría todos los recibos viejos, incluidos los que ya tienen una firma encima. Un documento firmado no cambia porque cambie el directorio.</p>
+
+<h2>Pagada es pagada</h2>
+
+<p>Un corte nace en <b>borrador</b>: se corrige cuantas veces haga falta y no mueve un peso. Al pagarlo cambia a <b>pagada</b>, y desde ahí no se reescribe ni se cancela.</p>
+
+<p>La razón es de contabilidad y no de permisos: ese dinero ya salió de la cuenta, y borrar el corte no lo regresa. Lo único honesto que se puede hacer es corregir el movimiento de la persona a la que se le pagó de más o de menos, y eso es lo que dice la pantalla cuando se intenta.</p>
+
+<p>Lo mismo del lado de la base: un corte sólo puede tener a cada persona <b>una vez</b>, y lo impide un índice único, no una validación. Si se colara dos veces, se le pagaría dos veces y el total cuadraría igual: nadie lo nota hasta que falta dinero en la caja.</p>
+
+<h2>El permiso, y por qué es otro</h2>
+
+<p>Ver la raya pide <code>personal.es_nominas</code>, una etiqueta que sólo el dueño reparte. Ya existía una parecida, <code>es_contador</code>, para quién puede pagar las órdenes de compra — y no se reusó.</p>
+
+<p>Pagarle a un proveedor y saber cuánto gana cada quien son dos permisos distintos. En una oficina chica, el segundo es el que causa problemas si anda suelto, y es justo el que se repartiría de más si viniera pegado al primero.</p>
+
+<p>El permiso se revisa en el servidor, en cada llamada, no al pintar el menú: quitarle la marca a alguien surte efecto al momento aunque tenga la pantalla abierta. Y quien reparte la marca queda apuntado en <code>orden_eventos</code>, la misma bitácora donde ya vivía quién pudo pagar y desde cuándo — porque es la misma clase de hecho y separarlo obligaría a leer dos tablas para reconstruir un mes.</p>
+
+<h2>La gente, sin duplicar la lista</h2>
+
+<p>La raya se le paga a quien está en <code>personal</code>, que es la misma tabla que llena roster101 con los expedientes. No se inventó otra lista de gente: si hubiera dos, un día no cuadrarían y nadie sabría cuál manda.</p>
+
+<p>Pero una empresa que sólo usa dash101 tendría esa tabla vacía, sin raya y sin dónde arreglarlo. Para eso hay una puerta chica, <code>POST /nomina/gente</code>, que pide el permiso de nóminas y sólo deja poner nombre y puesto. dash101 sigue sin poder escribir <code>personal</code> por el CRUD genérico: el permiso de campo no se abrió.</p>
+
+<h2>Cómo quedó medido</h2>
+
+<p>387 pruebas de la API en verde, 18 de ellas nuevas para la raya, y 139 en dash101. Las que valen son las que cuidan el dinero cruzando la frontera: la pantalla captura en <b>pesos</b> y la API guarda en <b>centavos</b>, así que hay una prueba que paga un corte y comprueba los importes del otro lado. Si esa conversión se cayera de un lado, un sueldo de $3,500 se pagaría en $35 o en $350,000 y el total seguiría cuadrando consigo mismo.</p>
+
+<p>La migración 0014 se mide aparte con <code>sqlite3</code> en memoria, porque rehace <code>orden_eventos</code> —SQLite no deja cambiar un <code>CHECK</code> con un <code>ALTER</code>— y una copia es donde se pierden cosas sin que nada truene. Se comprueba que la bitácora quede idéntica con sus fechas, que la llave foránea sobreviva, y que <code>es_nominas</code> nazca <b>apagado</b> en todos los que ya estaban: una columna de permiso que naciera encendida le abriría los sueldos a la empresa entera el día del despliegue, en silencio.</p>
+</div>
