@@ -63,7 +63,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
   <p class="eyebrow">Suite 101 · arquitectura</p>
   <h1>El cliente, el ítem y la obra: una sola cosa</h1>
   <p class="lede">Tres apps hablan del mismo trabajo: quote101 lo cotiza, dash101 lo cobra y quell101 lo instala. Hasta ahora cada una guardaba su propia copia del cliente y de la lista de piezas, y nadie sabía cuál era la buena. Estos cuatro contratos hacen que sea una sola: la obra se liga al proyecto, el ítem lleva cuántas piezas son y cuántas faltan por colocar, y el cliente se reconoce por parecido y se fusiona.</p>
-  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.22.0</b> a <b>0.24.1</b></span><span>Migraciones del OrgDB <b>0010</b> y <b>0011</b></span></div>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.22.0</b> a <b>0.24.2</b></span><span>Migraciones del OrgDB <b>0010</b> y <b>0011</b></span></div>
 </header>
 
 <h2>Lo que estaba mal de fondo</h2>
@@ -149,6 +149,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 <tr><td><code>POST /orgs/:o/clientes/:id/fusionar</code></td><td>0.23.0</td><td>Mover proyectos, cotizaciones y movimientos de un cliente duplicado al bueno.</td></tr>
 <tr><td><code>GET /orgs/:o/obras/:id/sin-ubicar</code></td><td>0.24.0</td><td>Los ítems vendidos a los que les faltan piezas por colocar en el plano.</td></tr>
 <tr><td><code>POST /orgs/:o/items/exportar</code></td><td>0.24.1</td><td>Ahora también escribe <code>cantidad</code>: la que cotizó quote101 cruza sin recapturarse.</td></tr>
+<tr><td><code>GET /orgs/:o/:tabla?limite=</code></td><td>0.24.2</td><td>Pedir una lista más larga, hasta 5,000 filas. Sin el parámetro, las 500 de siempre.</td></tr>
 </table>
 </div>
 
@@ -158,7 +159,7 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 
 <p>Esta sección no describe una función nueva: describe una trampa de esta API que costó tres reportes del mismo defecto, y que cualquiera que escriba una pantalla nueva se va a volver a encontrar.</p>
 
-<p><b>Toda lista de la API viene topada en 500 filas, ordenadas por <code>creado_at</code>.</b> El tope no avisa: contesta 200 con menos renglones de los que hay.</p>
+<p><b>Toda lista de la API viene topada en 500 filas, ordenadas por <code>creado_at</code>.</b> El tope no avisa: contesta 200 con menos renglones de los que hay. Lo único que lo delata es <code>total</code>, que viene en la respuesta desde siempre y que nadie miraba.</p>
 
 <p>Al guardar la lista de ítems de un proyecto, dash101 pedía los ítems para saber cuáles ya existían y cuáles eran nuevos. Y los ítems <b>nunca se borran</b>: <code>DELETE /orgs/:o/items/:id</code> contesta 403 <code>items_nunca_se_borran</code>, a propósito, porque un ítem borrado deja el historial del proyecto sin cuadrar. Quitar uno lo pasa a <code>cancelado</code>.</p>
 
@@ -170,9 +171,25 @@ footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-s
 
 <p>El arreglo fueron tres cosas, no una: se pide sólo <code>estado = 'vendido'</code> de ese proyecto; un identificador que viene de la pantalla nunca se convierte en alta —si no aparece en la lista se intenta revivir con <code>PATCH</code> y sólo si eso falla se crea—; y la lectura del proyecto trae sus propios ítems en vez de recortarlos de una lista de la empresa.</p>
 
+<h2>El mismo tope, del otro lado: la lista ciega</h2>
+
+<p>Ese arreglo tapó el lado del guardado y dejó el de la lectura. Horas después, Mike abrió un proyecto suyo y vio lo contrario: la pantalla decía <em>«Sin ítems»</em> y el precio de venta seguía en $6,473,790.</p>
+
+<p><b>No faltaba nada, y esa cifra era la correcta.</b> Vale la pena entender por qué las dos cosas podían ser ciertas a la vez: <code>precio_venta</code> no lo cuenta la pantalla sumando lo que ve, lo calcula la API con un <code>SUM</code> en la base sobre los ítems vendidos. La lista, en cambio, se pedía sin filtrar el estado, y el tope va ordenado de la fila más vieja a la más nueva: en un proyecto muy editado, los cancelados son justo los más viejos. Llenaban las 500 y empujaban a los vivos fuera de la respuesta.</p>
+
+<p>Es la misma trampa que la vez anterior, y ahí está la lección de verdad: <b>un tope silencioso no produce un defecto, produce una familia de defectos</b>, uno por cada lugar donde alguien lista para decidir algo. Taparlos de uno en uno no acaba.</p>
+
+<p>Por eso el contrato <b>0.24.2</b> no cambia el tope: le da salida. <code>?limite=</code> deja pedir hasta 5,000 filas, y sin el parámetro todo sigue en 500, así que ninguna pantalla que ya funciona cambia de comportamiento. El tope se queda porque protege —una lista sin techo es una manera de tumbar el Durable Object desde una pantalla—; lo que se quita es la obligación de adivinar.</p>
+
+<div class="aviso">
+<p><b>La regla completa: una lista que sirve para decidir se pide comparando <code>total</code> contra las filas que llegaron</b>, y si falta algo se vuelve a pedir con <code>?limite=</code>. Si aun así falta, se truena. Una pantalla que truena se arregla; una pantalla que enseña de menos se cree.</p>
+</div>
+
+<p>En dash101 eso es <code>listarCompleto()</code>, y se usa en los dos lugares donde la lista decide: la lectura del proyecto y su guardado. Donde sólo se pinta —la lista de proyectos— se sigue usando la lectura normal, filtrada a los vivos: que un renglón de detalle salga corto se nota y no rompe nada, y tronar la pantalla principal de una empresa con años de trabajo sería peor que el defecto.</p>
+
 <h2>Cómo quedó medido</h2>
 
-<p>332 pruebas de la API en verde, con las dos migraciones comprobadas aparte con <code>sqlite3</code> en memoria: que la columna nace, que el índice único rechaza la segunda liga, y que ninguna cifra vieja se movió. En dash101, 104 pruebas, y en la puerta de quell101, 29.</p>
+<p>339 pruebas de la API en verde, con las dos migraciones comprobadas aparte con <code>sqlite3</code> en memoria: que la columna nace, que el índice único rechaza la segunda liga, y que ninguna cifra vieja se movió. En dash101, 106 pruebas, y en la puerta de quell101, 29. La lista ciega tiene su propio archivo, <code>pruebas/tope-de-listas.spec.ts</code>, que siembra 505 cancelados y 3 vivos —la forma exacta del proyecto de Mike— y comprueba las dos cosas a la vez: que en las 500 filas de la respuesta no viene un solo vivo, y que el precio de venta sale correcto de todos modos.</p>
 
 <p>Además, el recorrido con navegador de dash101 tiene dos pasos nuevos que hacen a mano lo que hizo Mike: editar la lista de ítems de un proyecto, quitar un renglón, guardar, y volver a entrar a comprobar que se quedó así. Estaba probado en memoria y aun así falló en la vida real; el recorrido es lo que hace que la próxima vez se ponga en rojo antes de que lo vea él.</p>
 
