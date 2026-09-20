@@ -1,0 +1,170 @@
+<title>Órdenes de compra y contabilidad fiscal</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>Órdenes de compra y contabilidad fiscal</h1>
+  <p class="lede">Cualquiera de la empresa pide una compra desde su teléfono y le cae directa al buzón de quien paga, sin que nadie la autorice antes. Al marcarla pagada, dash101 registra el egreso solo, guarda el comprobante y le avisa por correo a quien la pidió. Encima va la contabilidad fiscal, y su idea manda sobre todo lo demás: no hay dos contabilidades. Hay una sola lista de movimientos, y la fiscal es esa misma lista filtrada por «facturado».</p>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.21.1</b></span><span>Migraciones del OrgDB <b>0008</b> y <b>0009</b></span><span>Once decisiones de Mike, 19-sep</span></div>
+</header>
+
+<h2>El camino de una compra</h2>
+
+<p>Son cinco estados y ninguno se salta. Lo que hay que entender de esta forma es lo que <em>no</em> tiene: no hay paso de autorización. Mike lo decidió así el 19 de septiembre y cambia la app entera: quien pide, pide, y quien paga decide al pagar. Un paso de autorización habría necesitado un tercer rol, una bandeja más y una razón para que alguien la revise todos los días.</p>
+
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1100 300" role="img" aria-label="Quien pide crea la orden y cae en el buzón. Desde el buzón, quien paga tiene tres salidas: pagarla, que crea el egreso; devolverla para corregir, que la regresa a quien la pidió y de ahí vuelve al buzón con el mismo folio; o rechazarla, que la cierra.">
+  <defs><marker id="fl" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="110" width="160" height="72" rx="8"/>
+    <rect x="250" y="110" width="160" height="72" rx="8"/>
+    <rect x="510" y="20" width="180" height="66" rx="8"/>
+    <rect x="510" y="112" width="180" height="66" rx="8"/>
+    <rect x="510" y="206" width="180" height="66" rx="8"/>
+    <rect x="800" y="20" width="220" height="66" rx="8"/>
+  </g>
+  <text x="100" y="140" text-anchor="middle" font-weight="600">quien pide</text>
+  <text x="100" y="160" text-anchor="middle" opacity=".7">desde el teléfono</text>
+
+  <text x="330" y="140" text-anchor="middle" font-weight="600">en el buzón</text>
+  <text x="330" y="160" text-anchor="middle" opacity=".7">sin autorización previa</text>
+
+  <text x="600" y="48" text-anchor="middle" font-weight="600">pagada</text>
+  <text x="600" y="68" text-anchor="middle" opacity=".7">una sola transacción</text>
+
+  <text x="600" y="140" text-anchor="middle" font-weight="600">devuelta</text>
+  <text x="600" y="160" text-anchor="middle" opacity=".7">con motivo obligatorio</text>
+
+  <text x="600" y="234" text-anchor="middle" font-weight="600">rechazada</text>
+  <text x="600" y="254" text-anchor="middle" opacity=".7">con motivo obligatorio</text>
+
+  <text x="910" y="44" text-anchor="middle" font-weight="600">egreso en movimientos</text>
+  <text x="910" y="64" text-anchor="middle" opacity=".7">comprobante, cachés y correo</text>
+
+  <g stroke="currentColor" stroke-width="1.2" fill="none">
+    <line x1="180" y1="146" x2="248" y2="146" marker-end="url(#fl)"/>
+    <path d="M410 130 C 450 130, 470 53, 508 53" marker-end="url(#fl)"/>
+    <line x1="410" y1="146" x2="508" y2="146" marker-end="url(#fl)" stroke-dasharray="4 3"/>
+    <path d="M410 162 C 450 162, 470 239, 508 239" marker-end="url(#fl)" stroke-dasharray="1 4"/>
+    <line x1="690" y1="53" x2="798" y2="53" marker-end="url(#fl)"/>
+    <path d="M510 170 C 430 200, 330 210, 330 184" marker-end="url(#fl)" stroke-dasharray="4 3"/>
+  </g>
+  <text x="352" y="215" opacity=".7">corregida: mismo folio, misma historia</text>
+  </g>
+</svg>
+</div>
+<figcaption>La flecha de regreso es la que evita el trabajo doble: una orden devuelta se corrige y vuelve al buzón con el <b>mismo folio</b> y con su historia completa. No se captura otra vez, y por eso se puede responder «¿por qué esta orden lleva tres semanas?» leyendo un solo renglón.</figcaption>
+</figure>
+
+<h2>Pagar es una sola transacción</h2>
+
+<p>Marcar pagada una orden hace seis cosas: crea el egreso en <code>movimientos</code> con la cuenta que escogió quien paga, le liga el <code>movimiento_id</code> a la orden, guarda el comprobante en <code>archivos</code>, deja el renglón en la bitácora, recalcula los cachés de la partida y del proyecto, y manda el correo. Las cinco primeras ocurren <b>dentro de una transacción</b> del Durable Object de la empresa; el correo va después, cuando el dinero ya quedó registrado.</p>
+
+<p class="aviso">Que sea una sola transacción no es elegancia: es lo que impide el doble egreso. Un doble clic en un celular con mala señal manda dos veces la misma petición, y sin esto el dinero sale dos veces. La segunda contesta <code>409</code> porque la orden ya no está en el buzón, y el saldo de la cuenta no se mueve.</p>
+
+<h2>Quién puede pagar</h2>
+
+<p>«Contador» es una <b>etiqueta</b>, no un rol: la columna <code>es_contador</code> en <code>personal</code>. Se le pone a quien sea, y si el dueño y quien administra pagan los dos, los dos se marcan. La reparte sólo el dueño, y el servidor la revisa en cada petición: quitársela a alguien surte efecto al momento, aunque tenga el buzón abierto.</p>
+
+<p>No se reusó <code>ve_dinero</code>, que ya existía y parecía servir. Esa marca dice quién <em>ve</em> cifras; no quién saca dinero del banco. Son dos permisos distintos y confundirlos habría dado el poder de pagar a todo el que puede mirar un reporte.</p>
+
+<h2>Por qué no hay dos contabilidades</h2>
+
+<p>La tentación es tener una lista «real» y otra «fiscal». Se ve ordenado y no funciona, por una razón que pasa casi siempre: <b>la factura llega después del pago</b>.</p>
+
+<table class="tabla">
+<thead><tr><th>Con dos listas</th><th>Con una sola lista</th></tr></thead>
+<tbody>
+<tr><td>El pago se captura en la real. Cuando llega la factura, se captura otra vez en la fiscal.</td><td>El pago se captura una vez. Cuando llega la factura, se le cuelga al movimiento que ya existe.</td></tr>
+<tr><td>Las dos listas se despalman y nadie se entera hasta que no cuadran.</td><td>No pueden despalmarse: es la misma lista.</td></tr>
+<tr><td>«Lo facturado contra lo real» hay que reconciliarlo a mano.</td><td>«Lo facturado contra lo real» es un filtro.</td></tr>
+</tbody>
+</table>
+
+<p>Por eso <code>movimientos</code> ganó ocho columnas —<code>facturado</code>, <code>subtotal</code>, <code>iva</code>, <code>tasa_iva</code>, <code>retenciones</code>, <code>uuid_cfdi</code>, <code>fecha_cfdi</code> y <code>forma_pago</code>— en vez de nacer una tabla paralela. Todo lo que ya existía quedó con <code>facturado = 0</code> y ninguna cifra de dinero cambió: lo viejo no se inventa.</p>
+
+<p>Las facturas viven en <code>cfdi</code>, con el UUID único por empresa, y se ligan a los movimientos por una tabla intermedia que lleva el <b>monto aplicado</b>. Sin ese monto, una factura de $10,000 pagada en tres partes no se puede cuadrar: un CFDI puede cubrir varios pagos y un pago puede cubrir varios CFDI.</p>
+
+<h2>El dinero, y dónde se convierte</h2>
+
+<p>La suite guarda centavos enteros; las pantallas de dash101 trabajan en pesos. La conversión vive en un solo lugar de cada lado —<code>lib/ordenes.ts</code> y <code>lib/fiscal.ts</code>— y las pruebas comparan pesos exactos. El motivo es que este error no truena: una pantalla que reciba centavos y los pinte como pesos enseña cien veces de más, se ve perfectamente normal y miente.</p>
+
+<p>El desglose del IVA se calcula <b>desde el total hacia atrás</b>, y el IVA es la resta:</p>
+
+<p><code>subtotal = redondear(total × 10000 ÷ (10000 + tasa))</code> · <code>iva = total − subtotal</code></p>
+
+<p>Así <code>subtotal + iva</code> da el total exacto siempre, que es lo que no pasa cuando se multiplica dos veces. La tasa viaja en <b>puntos base</b> (1600 = 16.00 %) para que no haya decimales en la base, y es editable: hay retención, tasa cero y exento. Si la pantalla no lo toca, lo calcula el servidor, y así la fórmula existe una sola vez en la plataforma.</p>
+
+<h2>Lo que estas tablas no hacen</h2>
+
+<ul class="lista">
+<li><b>No salen por el CRUD genérico.</b> El CRUD entrega la tabla entera a quien puede leerla, y aquí un miembro tiene que ver <em>sólo sus</em> órdenes. Ese filtro no se puede expresar ahí, así que cada permiso se revisa renglón por renglón en el servidor.</li>
+<li><b><code>es_contador</code> no está en la lista de escritores de <code>personal</code>.</b> Si estuviera, cualquiera con dash101 se marcaría solo como pagador.</li>
+<li><b>No presentan declaraciones ni sustituyen al contador.</b> Esto ordena la información fiscal; los números salen de lo que se capture. Está escrito en las tres pantallas fiscales, no sólo en esta página.</li>
+</ul>
+
+<h2>Cómo quedó medido</h2>
+
+<p>302 pruebas de la API en verde, más 31 comprobaciones de las migraciones con <code>sqlite3</code> en memoria que confirman que ninguna cifra vieja se movió. En dash101, 84 pruebas, 18 de ellas contra staging midiendo que lo que llega a las pantallas está en pesos, y un recorrido con navegador a 390 × 844 que pide una compra con foto, la paga y la ve cambiar. El humo contra staging y producción, 200 de 200.</p>
+
+<p>El humo encontró algo que las pruebas en memoria no: quien abre una empresa como dueño sin ser miembro de ella —el superadmin de la suite— no se podía marcar a sí mismo como quien paga, y en una empresa recién dada de alta eso dejaba la pantalla vacía y a nadie que pudiera pagar. Se corrigió en el contrato 0.21.1, con su caso de prueba.</p>
+</div>
