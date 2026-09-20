@@ -1,0 +1,112 @@
+<title>La factura y el movimiento: una sola cosa, no dos</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>La factura y el movimiento: una sola cosa, no dos</h1>
+  <p class="lede">Un cobro y su CFDI son el mismo hecho contado dos veces. Si el sistema los deja capturar por separado, tarde o temprano no coinciden, y el que no coincide es el número que se le da al SAT. Esto es cómo quedaron amarrados: la espera de la factura vive en el movimiento, el total sale del movimiento, y la marca de «ya está» se apaga sola.</p>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.24.2</b> a <b>0.25.0</b></span><span>Migración del OrgDB <b>0012</b></span></div>
+</header>
+
+<h2>Dónde vive la espera de una factura</h2>
+
+<p>Antes, «a este pago le falta la factura» vivía en la <b>orden de compra</b>, en su columna <code>con_factura</code>. Tenía sentido mientras el único camino a un egreso era una orden: se pedía la compra, se decía si iba a llegar factura, y al pagarla la lista de pendientes salía de ahí.</p>
+
+<p>Pero un cobro a un cliente no tiene orden de compra, y nunca la va a tener. Al querer la misma lista del lado de los ingresos —que es lo que pidió Mike— no había dónde escribir la espera. Con la estructura vieja, la única salida habría sido inventarle una orden ficticia a cada cobro: un renglón que no representa nada, sólo para tener dónde guardar una bandera.</p>
+
+<p>La migración <code>0012_factura_esperada.sql</code> mueve el dato a donde pertenece: <code>movimientos.requiere_factura</code>. La espera de una factura es un hecho <b>del movimiento</b>, no del papel que lo originó. Los dos lados quedan iguales, y la lista de pendientes es una sola consulta —<code>requiere_factura = 1 AND facturado = 0</code>— en vez de dos caminos distintos según de dónde venga el dinero.</p>
+
+<p>Las órdenes viejas no se perdieron: el relleno de la migración copia <code>con_factura</code> a los movimientos que ya existían. Y hubo que tocar algo que no se ve al leer: cuando se paga una orden, el egreso que nace tiene que nacer ya con la expectativa puesta. La primera versión no lo hacía, y esos egresos nacían fuera de la lista. <b>Una migración que mueve un dato tiene que revisar quién lo ESCRIBE, no nada más quién lo lee.</b></p>
+
+<h2>Por qué el total lo pone el movimiento</h2>
+
+<p>Al capturar la factura de un cobro, la pantalla pide el folio fiscal, el RFC, la fecha y el IVA. No pide el total: lo toma del movimiento.</p>
+
+<p>Es la decisión más chica de esta entrega y la que más dinero cuida. Si el total se tecleara aparte, existiría el caso de una factura por una cifra y su cobro por otra —un dígito de más, un renglón copiado del mes pasado— y el IVA saldría de en medio, con cara de correcto. Nadie revisa dos números que se ven bien por separado. Al sacarlo del movimiento, el caso simplemente no existe.</p>
+
+<p>Por lo mismo, capturar la factura <b>nunca</b> crea un movimiento aparte. Una factura no es un cobro más: es el papel de un cobro que ya está registrado. Cada vez que un sistema deja que el papel genere su propio renglón, el dinero aparece dos veces.</p>
+
+<h2>La marca que se apaga</h2>
+
+<p>En las listas de movimientos, los que ya tienen factura traen un icono. Sale igual en ingresos y en egresos, porque lo que marca es que el movimiento está fiscalizado, no de qué lado del libro está.</p>
+
+<p>Lo que se probó no es el icono —son dos líneas de pantalla— sino dos cosas que no se ven:</p>
+
+<p>La primera, que el dato <b>viaje en la lista</b>. Si la API podara <code>facturado</code> de la respuesta, o el adaptador lo perdiera al convertir, el icono no saldría nunca, y no habría manera de notarlo más que a ojo, pantalla por pantalla. Una prueba pide la lista con las mismas funciones que usan las dos pantallas y comprueba que el campo está.</p>
+
+<p>La segunda, que la marca <b>se apague</b>. Es la mitad que se olvida. Al cancelar la factura de un movimiento la marca se quita; si se quedara pegada, se vería un movimiento «facturado» cuya factura ya no existe, y ése es justo el que hay que perseguir. Una marca que se prende y no se apaga miente peor que no tener ninguna.</p>
+
+<h2>El camino que no se podía medir</h2>
+
+<p>La prueba que sube el XML de la factura y lo cuelga del movimiento salió roja con <code>sin_sesion</code>. No era la prueba.</p>
+
+<p>Subir un archivo es multipart, y el cliente común de dash101 manda JSON, así que la subida armaba su propio <code>fetch</code> a un lado, con <code>credentials: 'include'</code>. En el navegador eso alcanza —la cookie la pone el navegador—, pero fuera del navegador no hay galletero: la sesión la guarda a mano el cliente común, en una variable suya, y ese <code>fetch</code> de afuera no la conocía.</p>
+
+<p>Dicho de otro modo: <b>la subida era el único camino de dash101 que ninguna prueba podía recorrer</b>, y llevaba meses sirviendo en producción porque en el navegador funcionaba de casualidad. Estaba anotado en el código con un comentario honesto —«es el único lugar que habla con la API sin el cliente común»— y el comentario no alarmó a nadie, empezando por quien lo escribió.</p>
+
+<p>El arreglo no fue arreglar el camino: fue arreglar el cliente común para que ya no hiciera falta salirse de él. Cuatro líneas —reconocer una forma multipart y no pisarle el <code>Content-Type</code>, porque la frontera la pone <code>fetch</code>— y la excepción desapareció en vez de quedar documentada.</p>
+
+<h2>Cómo quedó medido</h2>
+
+<p>352 pruebas de la API en verde, con la migración 0012 comprobada aparte con <code>sqlite3</code> en memoria: que la columna nace con su valor por omisión, que el relleno copia lo que estaba en las órdenes y nada más, y que ninguna cifra vieja se movió. En dash101, 123 pruebas contra staging, entre ellas cuatro nuevas para la marca y una que recorre entero el camino de «Ya se facturó»: crear el movimiento, crear el CFDI por su total, ligarlos y colgar el archivo.</p>
+
+<p>Del lado de la API, <code>/fiscal/pendientes</code> acepta <code>?tipo=</code> y rechaza cualquier otro valor con un error nombrado, en vez de contestar una lista vacía. Una consulta mal escrita que devuelve cero se lee igual que «no hay pendientes», y ésa es la clase de silencio que se vuelve una declaración equivocada tres meses después.</p>
+</div>
