@@ -1,0 +1,197 @@
+<title>El cliente, el ítem y la obra: una sola cosa</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>El cliente, el ítem y la obra: una sola cosa</h1>
+  <p class="lede">Tres apps hablan del mismo trabajo: quote101 lo cotiza, dash101 lo cobra y quell101 lo instala. Hasta ahora cada una guardaba su propia copia del cliente y de la lista de piezas, y nadie sabía cuál era la buena. Estos cuatro contratos hacen que sea una sola: la obra se liga al proyecto, el ítem lleva cuántas piezas son y cuántas faltan por colocar, y el cliente se reconoce por parecido y se fusiona.</p>
+  <div class="meta"><span><b>Al 20 de septiembre de 2026</b></span><span>Contrato de la API <b>0.22.0</b> a <b>0.24.2</b></span><span>Migraciones del OrgDB <b>0010</b> y <b>0011</b></span></div>
+</header>
+
+<h2>Lo que estaba mal de fondo</h2>
+
+<p>No era que faltaran pantallas. Era que la misma cosa vivía tres veces. Un cliente capturado en el cotizador y otro capturado en dash101 eran dos renglones sin relación aunque fueran la misma persona; la lista de piezas de una cotización y la lista de ítems de un proyecto eran dos listas que nadie cruzaba; y la obra de quell101 —la que tiene el plano y las fotos— no sabía a qué proyecto pertenecía.</p>
+
+<p>La consecuencia práctica: al cliente se le cobraba desde un renglón y se le instalaba desde otro, y si los dos no coincidían, nadie se enteraba hasta el final.</p>
+
+<h2>La obra y el proyecto, ligados uno a uno</h2>
+
+<p>La migración <code>0010_obras.sql</code> le cuelga a <code>quell_projects</code> una columna <code>proyecto_id</code> que apunta a <code>proyectos</code>, con un índice único parcial: <b>una obra se liga a lo más a un proyecto, y un proyecto a lo más a una obra</b>. No es una relación de muchos a muchos a propósito. Si una obra pudiera pertenecer a dos proyectos, la pregunta «¿a quién se le cobra esto?» dejaría de tener una sola respuesta.</p>
+
+<figure>
+<div class="marco">
+<svg viewBox="0 0 1040 250" role="img" aria-label="quote101 cotiza y crea el cliente y los ítems; dash101 tiene el proyecto con sus ítems y su precio de venta; quell101 tiene la obra con el plano y sus elementos. La obra se liga al proyecto por proyecto_id, y cada elemento del plano se liga a un ítem por item_id.">
+  <defs><marker id="fl2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+  <g font-size="12" fill="currentColor">
+  <g stroke="currentColor" fill="none" stroke-width="1.2">
+    <rect x="20" y="90" width="200" height="80" rx="8"/>
+    <rect x="400" y="90" width="220" height="80" rx="8"/>
+    <rect x="800" y="90" width="220" height="80" rx="8"/>
+  </g>
+  <text x="120" y="118" text-anchor="middle" font-weight="600">quote101</text>
+  <text x="120" y="138" text-anchor="middle" opacity=".75">cotiza: cliente + ítems</text>
+  <text x="120" y="156" text-anchor="middle" opacity=".75">con cantidad</text>
+
+  <text x="510" y="118" text-anchor="middle" font-weight="600">dash101 · proyecto</text>
+  <text x="510" y="138" text-anchor="middle" opacity=".75">items (monto, cantidad)</text>
+  <text x="510" y="156" text-anchor="middle" opacity=".75">precio_venta = Σ monto</text>
+
+  <text x="910" y="118" text-anchor="middle" font-weight="600">quell101 · obra</text>
+  <text x="910" y="138" text-anchor="middle" opacity=".75">plano y elementos</text>
+  <text x="910" y="156" text-anchor="middle" opacity=".75">quell_elements.item_id</text>
+
+  <g stroke="currentColor" stroke-width="1.2" marker-end="url(#fl2)" fill="none">
+    <path d="M220,130 L395,130"/>
+    <path d="M620,130 L795,130"/>
+  </g>
+  <text x="307" y="120" text-anchor="middle" opacity=".8">exportar</text>
+  <text x="707" y="120" text-anchor="middle" opacity=".8">proyecto_id</text>
+  <text x="707" y="148" text-anchor="middle" opacity=".8">uno a uno</text>
+
+  <text x="520" y="222" text-anchor="middle" opacity=".75">Un solo cliente para las tres, reconocido por parecido antes de crear otro.</text>
+  </g>
+</svg>
+</div>
+<figcaption>El mismo trabajo visto por las tres apps. Lo que cambia con estos contratos son las dos flechas de la derecha: antes no existían, y cada app guardaba su copia.</figcaption>
+</figure>
+
+<h2>La cantidad del ítem, y por qué el importe es de la línea</h2>
+
+<p>La migración <code>0011_cantidad.sql</code> agrega <code>items.cantidad</code>, entero, por omisión 1. Sirve para lo que pidió Mike: veinte puertas del mismo acabado y el mismo precio son <em>un</em> renglón con cantidad veinte, no veinte renglones.</p>
+
+<div class="aviso">
+<p><b>Regla que no se puede olvidar: <code>items.monto</code> es el importe de la línea completa, no el precio de una pieza.</b> Si son 20 puertas de 1,500, <code>monto</code> es 30,000 y <code>cantidad</code> es 20. El <code>precio_venta</code> del proyecto sigue siendo la suma de los <code>monto</code>, sin multiplicar por nada.</p>
+</div>
+
+<p>Se dice así de fuerte porque el error contrario no truena: si alguien tratara <code>monto</code> como el precio unitario y multiplicara, el precio de venta del proyecto saldría veinte veces más alto con cara de correcto, y se descubriría al cobrarle al cliente. Hay una prueba que lo cuida por nombre, «la cantidad viaja y el precio de venta NO se multiplica otra vez». Las pantallas sí muestran el precio por pieza, pero lo calculan al vuelo dividiendo.</p>
+
+<h2>Los «ítems sin ubicar»</h2>
+
+<p>La misma migración le cuelga a <code>quell_elements</code> una columna <code>item_id</code>. Con eso, poner un elemento en el plano de quell101 deja de ser un apunte suelto: <b>consume una pieza de un ítem vendido</b>.</p>
+
+<p>De ahí sale <code>GET /orgs/:o/obras/:id/sin-ubicar</code>, que contesta los ítems vendidos del proyecto ligado a esa obra a los que todavía les faltan piezas, con cuántas faltan de cuántas. En la pantalla de quell101 es un menú —«¿es uno de los vendidos?»— que dice <em>Puerta de clóset — faltan 8 de 20</em>. Cuando ya se ubicaron las veinte, el ítem deja de ofrecerse y la API contesta 409 si se insiste.</p>
+
+<p>El motor valida las tres cosas del lado del servidor, no de la pantalla: que el ítem sea de esa obra, que esté vendido, y que todavía falten piezas. Una pantalla vieja o una llamada a mano no pueden colarse.</p>
+
+<h2>El cliente, reconocido antes de duplicarse</h2>
+
+<p>Dos rutas nuevas, sin migración: <code>GET /orgs/:o/clientes/parecidos?nombre=…</code> y <code>POST /orgs/:o/clientes/:id/fusionar</code>. La comparación normaliza: ignora mayúsculas, acentos, puntuación y palabras de forma jurídica, así que «Constructora Ramírez S.A. de C.V.» y «constructora ramirez sa de cv» son la misma.</p>
+
+<p>La decisión de diseño importante es <em>cuándo</em> se pregunta. No se hace una limpieza nocturna que junte clientes por su cuenta —fusionar mal es difícil de deshacer—: se pregunta <b>en el momento de crear</b>, con el nombre a medio escribir, cuando quien captura sabe la respuesta. «¿No te refieres a Constructora Ramírez?», con dos salidas: «sí, ya está» —y se usa el que existe— o «no, es otro: créalo». La fusión de duplicados que ya existen es un botón aparte, y mueve el historial completo al que se queda.</p>
+
+<h2>Las rutas nuevas</h2>
+
+<div class="tabla">
+<table>
+<tr><th>Ruta</th><th>Contrato</th><th>Para qué</th></tr>
+<tr><td><code>GET /orgs/:o/obras</code><br><code>GET /orgs/:o/obras?sueltas=1</code></td><td>0.22.0</td><td>Las obras de quell101 de la empresa; con <code>sueltas=1</code>, sólo las que no tienen proyecto. Es la lista que sale al crear un proyecto en dash101.</td></tr>
+<tr><td><code>GET /orgs/:o/obras/de-proyecto/:id</code></td><td>0.22.0</td><td>La obra de un proyecto, para pintar la liga que lo abre en quell101.</td></tr>
+<tr><td><code>POST /orgs/:o/obras/:id/ligar</code><br><code>DELETE /orgs/:o/obras/:id/ligar</code></td><td>0.22.0</td><td>Ligar y desligar. El índice único rechaza el segundo intento.</td></tr>
+<tr><td><code>GET /orgs/:o/clientes/parecidos</code></td><td>0.23.0</td><td>Los clientes que se parecen a un nombre, antes de crear otro.</td></tr>
+<tr><td><code>POST /orgs/:o/clientes/:id/fusionar</code></td><td>0.23.0</td><td>Mover proyectos, cotizaciones y movimientos de un cliente duplicado al bueno.</td></tr>
+<tr><td><code>GET /orgs/:o/obras/:id/sin-ubicar</code></td><td>0.24.0</td><td>Los ítems vendidos a los que les faltan piezas por colocar en el plano.</td></tr>
+<tr><td><code>POST /orgs/:o/items/exportar</code></td><td>0.24.1</td><td>Ahora también escribe <code>cantidad</code>: la que cotizó quote101 cruza sin recapturarse.</td></tr>
+<tr><td><code>GET /orgs/:o/:tabla?limite=</code></td><td>0.24.2</td><td>Pedir una lista más larga, hasta 5,000 filas. Sin el parámetro, las 500 de siempre.</td></tr>
+</table>
+</div>
+
+<p>Las de obras se montan <em>antes</em> del CRUD genérico de tablas (<code>montarObras(rutas)</code>). Si se montaran después, <code>/obras/de-proyecto/:id</code> se la comería la ruta genérica <code>/:tabla/:id</code> y contestaría «no existe la obra <em>de-proyecto</em>».</p>
+
+<h2>El tope de 500 filas, y el defecto que causó</h2>
+
+<p>Esta sección no describe una función nueva: describe una trampa de esta API que costó tres reportes del mismo defecto, y que cualquiera que escriba una pantalla nueva se va a volver a encontrar.</p>
+
+<p><b>Toda lista de la API viene topada en 500 filas, ordenadas por <code>creado_at</code>.</b> El tope no avisa: contesta 200 con menos renglones de los que hay. Lo único que lo delata es <code>total</code>, que viene en la respuesta desde siempre y que nadie miraba.</p>
+
+<p>Al guardar la lista de ítems de un proyecto, dash101 pedía los ítems para saber cuáles ya existían y cuáles eran nuevos. Y los ítems <b>nunca se borran</b>: <code>DELETE /orgs/:o/items/:id</code> contesta 403 <code>items_nunca_se_borran</code>, a propósito, porque un ítem borrado deja el historial del proyecto sin cuadrar. Quitar uno lo pasa a <code>cancelado</code>.</p>
+
+<p>Junten las dos cosas. En un proyecto muy editado los cancelados se acumulan, empujan a los vivos recientes fuera del tope de 500, sus identificadores dejan de verse, y dash101 los da por nuevos y los vuelve a crear. Desde la pantalla se veía exactamente lo que reportó Mike: «los duplica» y «no hay manera de borrar ítems».</p>
+
+<div class="aviso">
+<p><b>La regla que sale de aquí: una lectura de lista que sirva para decidir «esto ya existe» está mal si no filtra.</b> Hay que pedir el subconjunto que importa —del proyecto, y vivos— y no confiar en recortar una lista global del lado de la pantalla.</p>
+</div>
+
+<p>El arreglo fueron tres cosas, no una: se pide sólo <code>estado = 'vendido'</code> de ese proyecto; un identificador que viene de la pantalla nunca se convierte en alta —si no aparece en la lista se intenta revivir con <code>PATCH</code> y sólo si eso falla se crea—; y la lectura del proyecto trae sus propios ítems en vez de recortarlos de una lista de la empresa.</p>
+
+<h2>El mismo tope, del otro lado: la lista ciega</h2>
+
+<p>Ese arreglo tapó el lado del guardado y dejó el de la lectura. Horas después, Mike abrió un proyecto suyo y vio lo contrario: la pantalla decía <em>«Sin ítems»</em> y el precio de venta seguía en $6,473,790.</p>
+
+<p><b>No faltaba nada, y esa cifra era la correcta.</b> Vale la pena entender por qué las dos cosas podían ser ciertas a la vez: <code>precio_venta</code> no lo cuenta la pantalla sumando lo que ve, lo calcula la API con un <code>SUM</code> en la base sobre los ítems vendidos. La lista, en cambio, se pedía sin filtrar el estado, y el tope va ordenado de la fila más vieja a la más nueva: en un proyecto muy editado, los cancelados son justo los más viejos. Llenaban las 500 y empujaban a los vivos fuera de la respuesta.</p>
+
+<p>Es la misma trampa que la vez anterior, y ahí está la lección de verdad: <b>un tope silencioso no produce un defecto, produce una familia de defectos</b>, uno por cada lugar donde alguien lista para decidir algo. Taparlos de uno en uno no acaba.</p>
+
+<p>Por eso el contrato <b>0.24.2</b> no cambia el tope: le da salida. <code>?limite=</code> deja pedir hasta 5,000 filas, y sin el parámetro todo sigue en 500, así que ninguna pantalla que ya funciona cambia de comportamiento. El tope se queda porque protege —una lista sin techo es una manera de tumbar el Durable Object desde una pantalla—; lo que se quita es la obligación de adivinar.</p>
+
+<div class="aviso">
+<p><b>La regla completa: una lista que sirve para decidir se pide comparando <code>total</code> contra las filas que llegaron</b>, y si falta algo se vuelve a pedir con <code>?limite=</code>. Si aun así falta, se truena. Una pantalla que truena se arregla; una pantalla que enseña de menos se cree.</p>
+</div>
+
+<p>En dash101 eso es <code>listarCompleto()</code>, y se usa en los dos lugares donde la lista decide: la lectura del proyecto y su guardado. Donde sólo se pinta —la lista de proyectos— se sigue usando la lectura normal, filtrada a los vivos: que un renglón de detalle salga corto se nota y no rompe nada, y tronar la pantalla principal de una empresa con años de trabajo sería peor que el defecto.</p>
+
+<h2>Cómo quedó medido</h2>
+
+<p>339 pruebas de la API en verde, con las dos migraciones comprobadas aparte con <code>sqlite3</code> en memoria: que la columna nace, que el índice único rechaza la segunda liga, y que ninguna cifra vieja se movió. En dash101, 106 pruebas, y en la puerta de quell101, 29. La lista ciega tiene su propio archivo, <code>pruebas/tope-de-listas.spec.ts</code>, que siembra 505 cancelados y 3 vivos —la forma exacta del proyecto de Mike— y comprueba las dos cosas a la vez: que en las 500 filas de la respuesta no viene un solo vivo, y que el precio de venta sale correcto de todos modos.</p>
+
+<p>Además, el recorrido con navegador de dash101 tiene dos pasos nuevos que hacen a mano lo que hizo Mike: editar la lista de ítems de un proyecto, quitar un renglón, guardar, y volver a entrar a comprobar que se quedó así. Estaba probado en memoria y aun así falló en la vida real; el recorrido es lo que hace que la próxima vez se ponga en rojo antes de que lo vea él.</p>
+
+<p>Una última, que es de proceso y no de código: durante tres mezclas seguidas dash101 no llegó a producción, porque el paso de medición buscaba el texto literal de una marca que se había quitado, y la puerta de publicación —con razón— no suelta producción si staging no mide bien. El arreglo fue dejar de medir la marca por un nombre comercial y medirla por el título, el logotipo de la pantalla de entrada y que el archivo se sirva. La lección queda escrita en el muro: el mensaje de un commit no es prueba de nada; la prueba es el despliegue medido.</p>
+</div>
