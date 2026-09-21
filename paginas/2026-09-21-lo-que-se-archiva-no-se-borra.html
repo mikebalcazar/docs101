@@ -1,0 +1,127 @@
+<title>Lo que se archiva no se borra, y lo que se anota va relativo</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=IBM+Plex+Sans:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+:root{
+  --fondo:#F3F6F8; --sup:#FFFFFF; --sup-2:#E9EEF2; --linea:#D5DDE3;
+  --tinta:#152028; --tinta-2:#4B5A66; --tinta-3:#7F8C97;
+  --marca:#0080C1; --marca-suave:#D9EEF8; --marca-oscuro:#0B1A24;
+  --bien:#1E7A4C; --bien-suave:#DDF1E6; --pend:#9A6200; --pend-suave:#FBEFD2; --mal:#A32D2D; --mal-suave:#F8DEDE;
+  --display:"Familjen Grotesk","IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --cuerpo:"IBM Plex Sans","Segoe UI",Helvetica,Arial,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+    --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+    --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+    --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+  }
+}
+:root[data-theme="dark"]{
+  --fondo:#0F171D; --sup:#172229; --sup-2:#1F2C35; --linea:#2C3B46;
+  --tinta:#EEF3F6; --tinta-2:#B3C0CA; --tinta-3:#7F919E;
+  --marca:#3AA3DC; --marca-suave:#153447; --marca-oscuro:#EEF3F6;
+  --bien:#5FC48E; --bien-suave:#173B2B; --pend:#E4B04A; --pend-suave:#3E2F10; --mal:#F08A8A; --mal-suave:#4A1F1F;
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--fondo);color:var(--tinta);font-family:var(--cuerpo);font-size:16px;line-height:1.55;padding-block:0 64px;padding-inline:20px}
+.pag{max-width:900px;margin:0 auto}
+header.cab{padding-block:44px 28px;border-bottom:1px solid var(--linea)}
+.eyebrow{font-size:12px;letter-spacing:.09em;text-transform:uppercase;color:var(--tinta-3);font-weight:600;margin:0 0 10px}
+h1{font-family:var(--display);font-weight:700;font-size:clamp(30px,5vw,44px);line-height:1.08;margin:0 0 14px;text-wrap:balance;color:var(--marca-oscuro)}
+h2{font-family:var(--display);font-weight:600;font-size:26px;line-height:1.15;margin:52px 0 12px;text-wrap:balance}
+p{max-width:68ch;margin:0 0 14px}
+p.lede{font-size:18px;color:var(--tinta-2);max-width:62ch}
+.meta{display:flex;flex-wrap:wrap;gap:8px 18px;color:var(--tinta-3);font-size:13.5px;margin-top:10px}
+.meta b{color:var(--tinta-2);font-weight:500}
+code{font-family:var(--mono);font-size:.92em;background:var(--sup-2);padding:1px 5px;border-radius:4px}
+figure{margin:22px 0 30px;background:var(--sup);border:1px solid var(--linea);border-radius:12px;padding:16px 16px 12px}
+figure .marco{overflow-x:auto}
+figure svg{display:block;max-width:100%;height:auto;min-width:640px;color:var(--tinta);font-family:var(--cuerpo)}
+figcaption{margin-top:10px;font-size:14px;color:var(--tinta-2);max-width:78ch}
+table{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--sup);border:1px solid var(--linea);border-radius:10px;overflow:hidden}
+.tabla{overflow-x:auto;margin:14px 0 8px}
+th,td{padding:9px 12px;text-align:left;vertical-align:top;border-bottom:1px solid var(--linea)}
+th{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--tinta-3);background:var(--sup-2);font-weight:600}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;font-size:12px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap}
+.pill.bien{background:var(--bien-suave);color:var(--bien)}
+.pill.pend{background:var(--pend-suave);color:var(--pend)}
+.pill.mal{background:var(--mal-suave);color:var(--mal)}
+ul.lista{padding-left:20px;margin:0 0 14px;max-width:70ch}
+ul.lista li{margin-bottom:8px}
+.aviso{border-left:4px solid var(--marca);background:var(--marca-suave);padding:12px 16px;border-radius:0 10px 10px 0;margin:18px 0;max-width:72ch}
+.aviso p{margin:0;font-size:15px}
+footer{margin-top:56px;padding-top:18px;border-top:1px solid var(--linea);font-size:13px;color:var(--tinta-3)}
+@media (max-width:640px){ h2{font-size:22px} figure{padding:10px 10px 8px} }
+</style>
+
+<div class="pag">
+<header class="cab">
+  <p class="eyebrow">Suite 101 · arquitectura</p>
+  <h1>Lo que se archiva no se borra, y lo que se anota va relativo</h1>
+  <p class="lede">Un plano de taller se corrige tres veces antes de que la pieza se fabrique, y encima de él hay notas de quien la va a fabricar. Guardar eso parece un problema de subir archivos. Son en realidad dos problemas: qué significa «la versión vigente» cuando dos personas suben a la vez, y en qué unidades se guarda una marca hecha con el dedo.</p>
+  <div class="meta"><span><b>Al 21 de septiembre de 2026</b></span><span>Contrato de la API <b>0.41.0</b></span></div>
+</header>
+
+<h2>«Sin borrar la anterior» no es una costumbre: es una columna</h2>
+
+<p>El encargo trae la regla escrita: la versión nueva del plano reemplaza a la anterior <i>a la vista</i>, y la anterior se archiva sin borrarse, para poder consultarla cuando haya dudas.</p>
+
+<p>La manera obvia de hacerlo es desde la pantalla: marcar la vieja como archivada y luego subir la nueva. Funciona los primeros nueve meses. El día que dos supervisores suban versión al mismo segundo, el ítem se queda con dos planos vigentes y nadie sabe cuál manda — y lo va a descubrir el de taller, cortando.</p>
+
+<p>Lo que lo impide de verdad son dos renglones de SQL:</p>
+
+<div class="tabla">
+<table>
+<tr><th>Índice</th><th>Qué prohíbe</th></tr>
+<tr><td><code>quell_docs_un_principal</code><br>sobre <code>element_id</code>, <code>WHERE rol = 'principal' AND archivado_at IS NULL</code></td><td>Dos planos principales vigentes en el mismo ítem.</td></tr>
+<tr><td><code>quell_docs_una_viva</code><br>sobre <code>familia_id</code>, <code>WHERE archivado_at IS NULL</code></td><td>Dos versiones vigentes del mismo documento.</td></tr>
+</table>
+</div>
+
+<p>La pieza que hace que esto funcione es el <code>WHERE</code>. Un índice único normal no sirve, porque el ítem <b>tiene</b> que poder guardar diez versiones del mismo plano; el índice parcial dice «de las vigentes, una». SQLite los soporta y D1 también.</p>
+
+<p>De paso, el índice obliga al orden correcto en la ruta que sube una versión: <b>primero se archiva la vieja, luego se inserta la nueva</b>. Al revés revienta. Y es el orden que se quiere aunque el índice no existiera: entre los dos pasos, es preferible quedarse un instante sin versión vigente que con dos.</p>
+
+<div class="aviso"><p>La regla general: cuando un requisito dice «sólo puede haber uno», la pregunta correcta no es dónde ponerlo en el código, sino <b>qué restricción de la base lo vuelve imposible</b>. Si no hay ninguna, el requisito es una intención.</p></div>
+
+<h2>Una marca en píxeles se ve bien exactamente en una pantalla</h2>
+
+<p>Sobre el plano se pueden clavar notas y rayar a mano alzada, desde el celular en obra o desde la computadora en la oficina. Es lo mismo que hace cualquier lector de PDF, y tiene una trampa que no se nota al construirlo.</p>
+
+<p>El mismo plano mide 390 puntos de ancho en un celular y 1200 en un monitor. Si la marca se guarda donde cayó el dedo <i>en la pantalla</i>, una nota puesta en obra aparece sobre otra pieza al abrirla en la oficina. Y nadie lo reporta, porque quien anota no ve las dos pantallas al mismo tiempo: cada quien ve la suya, y cada quien la ve bien.</p>
+
+<p>Las marcas se guardan <b>relativas</b>: x e y de 0 a 1 sobre la página, y el trazo como una lista de pares en esas mismas unidades. Eso es evidente una vez dicho. Lo que no es evidente son las dos consecuencias:</p>
+
+<ul class="lista">
+<li><b>El servidor recorta a 0–1, no confía.</b> Una marca en 1.4 se pinta fuera del papel y nadie la vuelve a encontrar. La pantalla ya recorta; el servidor lo vuelve a hacer, porque la pantalla es una de varias y mañana hay otra.</li>
+<li><b>La pantalla no hace la cuenta a mano.</b> La capa de marcas es un <code>&lt;svg viewBox="0 0 1 1" preserveAspectRatio="none"&gt;</code> puesto exactamente encima de la hoja, y los puntos se pintan tal cual: la conversión la hace el navegador. Una cuenta de píxeles escrita a mano en la pantalla es una segunda definición de la misma cosa, y un día se desfasa de la del servidor. (Un detalle: con el <code>viewBox</code> estirado, el grosor del trazo también se estira, salvo con <code>vector-effect="non-scaling-stroke"</code>.)</li>
+</ul>
+
+<h2>Copiar o no copiar no lo decide el esquema</h2>
+
+<p>Al subir una versión nueva hay una pregunta real: ¿se traen las anotaciones de la anterior?</p>
+
+<p>Las dos respuestas son defendibles y por razones opuestas. Un plano corregido normalmente <i>invalida</i> las notas que pedían la corrección, así que copiarlas siempre deja notas viejas señalando cosas que ya se arreglaron. Pero cuando el cambio fue chico, volver a clavar catorce notas a mano es exactamente lo que hace que la siguiente vez nadie las use.</p>
+
+<p>Así que no se elige en el esquema: viaja como un campo del formulario, y la pantalla lo pregunta cada vez, con dos botones y la consecuencia escrita debajo de cada uno. <b>Cuando las dos respuestas son defendibles, el sistema no escoge: pregunta, y dice qué implica cada una antes de que respondan.</b></p>
+
+<h2>Lo que sólo se ve probándolo</h2>
+
+<p>Dos defectos de la pantalla sobrevivieron a la lectura del código y cayeron en el primer recorrido con un navegador de verdad. Los dos son de la misma familia: <b>se ven bien y guardan mal</b>.</p>
+
+<ul class="lista">
+<li><b>Los trazos se guardaban con dos puntos.</b> Los puntos se juntaban en el estado de React. Un dedo sobre la pantalla dispara <code>pointermove</code> mucho más rápido de lo que React confirma un cambio de estado, así que cada evento leía la lista de hacía tres puntos y la reemplazaba. Mientras se dibuja se ve la línea completa —esa sale de otro camino—; lo que llega a la base es una recta de dos puntos. Los puntos van ahora en un <code>useRef</code>, que siempre está al día.</li>
+<li><b>El plano se corría justo al ir a anotarlo.</b> Al prender el modo «nota» aparece debajo un aviso de «toca el plano donde quieras clavar la nota». Ese aviso es más ancho que el plano, y en una columna centrada ensanchaba el contenedor y movía el plano unos 38 puntos de lado. Resultado: se pica donde se quiere y la nota cae cuatro centímetros más allá. Nadie lo reporta como defecto; se reporta como «le piqué mal».</li>
+</ul>
+
+<p>Ninguno de los dos aparece en una prueba que lea el código fuente, y ninguno rompe nada: el primero guarda una línea plausible, el segundo guarda una coordenada perfectamente válida. La única forma de verlos es <b>hacer el gesto y comparar lo que viajó contra lo que se hizo</b>.</p>
+
+<h2>Cómo quedó medido</h2>
+
+<p>538 pruebas de la API, con un bloque nuevo que sube el principal y el soporte, anota nota y trazo, sube versión con y sin copiar marcas, y comprueba que la archivada sigue consultable pero no se puede anotar. Una prueba de la migración corre sobre una base con datos antes de cada despliegue: un solo principal vivo, las marcas se quedan con su versión, ninguna llave foránea rota.</p>
+
+<p>Y del lado de la pantalla, un recorrido en Chromium a 390×844 y a 1280×800 que clava una nota tocando el 25 % / 75 % de la hoja y comprueba que lo que viaja es <b>el mismo par en las dos pantallas</b>. Esa prueba es la que existe por la sección de en medio: si algún día alguien cambia las unidades, no se va a notar mirando.</p>
+</div>
